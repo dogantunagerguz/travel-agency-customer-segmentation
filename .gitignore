@@ -1,0 +1,18 @@
+# Environment
+.env
+
+# Data
+*.xlsx
+*.xls
+*.csv
+*.pbix
+
+# Power BI project (if a .pbip is ever added)
+**/.pbi/localSettings.json
+**/.pbi/cache.abf
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
