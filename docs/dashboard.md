@@ -6,7 +6,7 @@ Three report pages, built in Power BI. The data shown is synthetic: names, hotel
 
 ## Flexible Customer Investigation
 
-![Flexible Customer Investigation](img/Investigation.png)
+![Flexible Customer Investigation](Investigation.png)
 
 The page the sales team actually works from. Search for a customer by name, or filter by age, family type, year, and segment to get the set of people who match, then read each one's spending, visit count, lead time, and where they've traveled.
 
@@ -16,7 +16,7 @@ This is the difference between a report someone glances at and a tool someone us
 
 ## Insights
 
-![Insights](img/Insights.png)
+![Insights](Insights.png)
 
 The overview page.
 
@@ -30,7 +30,7 @@ The overview page.
 
 ## Detailed Insights
 
-![Detailed Insights](img/Detailed.png)
+![Detailed Insights](Detailed.png)
 
 The same analysis, filterable. **Customer segments** breaks the base down by lifecycle state, and the distribution is the point: roughly half the customers are one-time, and only a small slice are loyal, which is exactly why "who are our loyal customers" was worth asking. **Visits by arrival date** shows the seasonal booking rhythm, and the table and map let you drill into any segment.
 
