@@ -1,5 +1,12 @@
 # From "Who Are Our Loyal Customers?" to Hotel Recommendations
 
+| | |
+|---|---|
+| **Business impact** | Identifies customer lifecycle segments, reconstructs booking lead time, and supports more focused hotel recommendations. |
+| **Tools** | Power BI, Power Query, DAX, Python, LocationIQ |
+| **Status** | In operational use; manually refreshed; source data remains private. |
+
+
 **TL;DR** — A Power BI report for a travel agency, built from sales exports laid out for humans rather than machines. It classifies customers by lifecycle (new, loyal, lapsed, and so on), reconstructs a transaction date the exports never recorded, and geocodes hotel names for a location view. Built remotely, in use by the sales team, refreshed by hand. The code and reasoning are here; the data belongs to the tour operator and isn't published.
 
 *Jump to: [Why the data couldn't answer it](#why-the-data-couldnt-answer-it) · [What I built](#what-i-built) · [What I found](#what-i-found) · [Where this could go next](#where-this-could-go-next) · [Status and limitations](#status-and-limitations)*
