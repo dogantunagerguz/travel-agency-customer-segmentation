@@ -1,0 +1,127 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "9e1691d764b5f6a4d932",
+  "position": {
+    "x": 0,
+    "y": 0,
+    "z": 0,
+    "height": 325.97836774827925,
+    "width": 565.11307767944936,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "scatterChart",
+    "query": {
+      "queryState": {
+        "Size": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Reservations"
+                    }
+                  },
+                  "Property": "Müşteri Sayısı"
+                }
+              },
+              "queryRef": "Rezervasyonlar.Müşteri Sayısı",
+              "nativeQueryRef": "Number of customers",
+              "displayName": "Number of customers"
+            }
+          ]
+        },
+        "X": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Calendar"
+                    }
+                  },
+                  "Property": "Ay"
+                }
+              },
+              "queryRef": "Takvim.Ay",
+              "nativeQueryRef": "Transaction Date-Month",
+              "active": true,
+              "displayName": "Transaction Date-Month"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Reservations"
+                        }
+                      },
+                      "Property": "On_Alim_Suresi"
+                    }
+                  },
+                  "Function": 1
+                }
+              },
+              "queryRef": "Sum(Rezervasyonlar.On_Alim_Suresi)",
+              "nativeQueryRef": "Avg. Lead Time",
+              "displayName": "Avg. Lead Time"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "valueAxis": [
+        {
+          "properties": {
+            "roundRange": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "invertAxis": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "logAxisScale": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Average Booking Lead Time by Month'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

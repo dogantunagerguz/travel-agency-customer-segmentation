@@ -1,0 +1,49 @@
+expression 'Ets Otelleri' =
+		let
+		    Source = Excel.Workbook(File.Contents("C:\Users\dogan\OneDrive\Masaüstü\Power BI Project\Ets\Etstur_Otel_Sinif.xlsx"), null, true),
+		    Oteller_Sheet = Source{[Item="Oteller",Kind="Sheet"]}[Data],
+		    #"Changed Type" = Table.TransformColumnTypes(Oteller_Sheet,{{"Column1", type text}, {"Column2", type text}, {"Column3", type text}, {"Column4", type text}, {"Column5", type text}}),
+		    #"Promoted Headers" = Table.PromoteHeaders(#"Changed Type", [PromoteAllScalars=true]),
+		    #"Changed Type1" = Table.TransformColumnTypes(#"Promoted Headers",{{"Otel Adı", type text}, {"Ülke", type text}, {"Şehir", type text}, {"İlçe", type text}, {"Otel Sınıfı", type text}}),
+		    #"Added Custom" = Table.AddColumn(#"Changed Type1", "Acente", each "Etstur")
+		in
+		    #"Added Custom"
+	lineageTag: 804f69b4-3caa-4923-bc68-f244ef8ee8b9
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression 'Didim Otelleri' =
+		let
+		    Source = Excel.Workbook(File.Contents("C:\Users\dogan\OneDrive\Masaüstü\Power BI Project\Ets\Didimtur_Otel_Fiyatlari.xlsx"), null, true),
+		    Oteller_Sheet = Source{[Item="Oteller",Kind="Sheet"]}[Data],
+		    #"Promoted Headers" = Table.PromoteHeaders(Oteller_Sheet, [PromoteAllScalars=true]),
+		    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Otel Adı", type text}, {"Ülke", type text}, {"Şehir", type text}, {"İlçe", type text}, {"Oda Sınıfı", type text}, {"Otel Sınıfı", type text}, {"Ort. 2 Kişilik Oda Fiyatı (₺)", type number}, {"Ort. 3 Kişilik Oda Fiyatı (₺)", type number}, {"Ort. 4 Kişilik Oda Fiyatı (₺)", type number}, {"Ort. Tek Kişilik Oda Fiyatı (₺)", type number}, {"Acente", type text}}),
+		    #"Removed Other Columns" = Table.SelectColumns(#"Changed Type",{"Otel Adı", "Ülke", "Şehir", "İlçe", "Otel Sınıfı", "Acente"}),
+		    #"Removed Duplicates" = Table.Distinct(#"Removed Other Columns", {"Otel Adı"}),
+		    #"Replaced Value" = Table.ReplaceValue(#"Removed Duplicates","Lara-Kundu","Kundu",Replacer.ReplaceText,{"İlçe"})
+		in
+		    #"Replaced Value"
+	lineageTag: 0a980de6-813c-45cc-81f1-c8ece32484e7
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression Ana-Rezervasyonlar =
+		let
+		    Source = Excel.Workbook(File.Contents("C:\Users\dogan\OneDrive\Masaüstü\Power BI Project\Demolar\travel-agency-customer-segmentation\mock\Travel-Mock.xlsx"), null, true),
+		    Rezervasyonlar_Sheet = Source{[Item="Rezervasyonlar",Kind="Sheet"]}[Data],
+		    #"Promoted Headers" = Table.PromoteHeaders(Rezervasyonlar_Sheet, [PromoteAllScalars=true]),
+		    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"No", Int64.Type}, {"Rez.No", Int64.Type}, {"Kabul", type text}, {"Ad Soyad", type text}, {"Yaş", Int64.Type}, {"Otel", type text}, {"Geliş", Int64.Type}, {"Ayrılış", Int64.Type}, {"Gece", Int64.Type}, {"Toplam", type number}, {"Ödenen", type number}, {"Bakiye", type number}, {"Yetişkin", Int64.Type}, {"Çocuk", Int64.Type}, {"Düşünceler", type text}}),
+		    #"Removed Columns" = Table.RemoveColumns(#"Changed Type",{"No", "Düşünceler", "Ödenen", "Bakiye"}),
+		    #"Changed Type1" = Table.TransformColumnTypes(#"Removed Columns",{{"Geliş", type date}, {"Ayrılış", type date}, {"İşlem Tarihi", type date}})
+		in
+		    #"Changed Type1"
+	lineageTag: 74ffce16-f48d-4844-883a-d625a3ce65dd
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

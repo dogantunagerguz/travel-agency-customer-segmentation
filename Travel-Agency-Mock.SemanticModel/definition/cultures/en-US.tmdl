@@ -1,0 +1,4589 @@
+cultureInfo en-US
+
+	linguisticMetadata =
+			{
+			  "Version": "4.1.0",
+			  "Language": "en-US",
+			  "Entities": {
+			    "mea": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Meas"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "mea": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "mea.column": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Meas",
+			          "ConceptualProperty": "Column"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "column": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "pilaster": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "pier": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "pillar": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "post": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "support": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "stake": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "pole": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "buttress": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "underpinning": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "contribution": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.466
+			          }
+			        }
+			      ]
+			    },
+			    "mea.müşteri_başına_ortalama_gece": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Meas",
+			          "ConceptualProperty": "Müşteri Başına Ortalama Gece"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "müşteri başına ortalama gece": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "mea.müşteri_başına_ortalama_harcama": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Meas",
+			          "ConceptualProperty": "Müşteri Başına Ortalama Harcama"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "müşteri başına ortalama harcama": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "takvim": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Calendar"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "takvim": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "takvim.date": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Calendar",
+			          "ConceptualProperty": "Date"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "date": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "moment": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.736
+			          }
+			        },
+			        {
+			          "period": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.714
+			          }
+			        }
+			      ],
+			      "SemanticType": "Time"
+			    },
+			    "takvim.date.date_hierarchy": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Calendar",
+			          "VariationSource": "Date",
+			          "VariationSet": "Variation",
+			          "Hierarchy": "Date Hierarchy"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "date hierarchy": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        }
+			      ],
+			      "SemanticType": "Time"
+			    },
+			    "takvim.date.year": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Calendar",
+			          "VariationSource": "Date",
+			          "VariationSet": "Variation",
+			          "Hierarchy": "Date Hierarchy",
+			          "HierarchyLevel": "Year"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "year": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "date year": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "date yr": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.75
+			          }
+			        },
+			        {
+			          "yr": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.736
+			          }
+			        },
+			        {
+			          "moment year": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "period year": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        }
+			      ],
+			      "SemanticType": "Time"
+			    },
+			    "takvim.date.quarter": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Calendar",
+			          "VariationSource": "Date",
+			          "VariationSet": "Variation",
+			          "Hierarchy": "Date Hierarchy",
+			          "HierarchyLevel": "Quarter"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "quarter": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "date quarter": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "date qtr": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.833
+			          }
+			        },
+			        {
+			          "qtr": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.818
+			          }
+			        },
+			        {
+			          "moment quarter": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "period quarter": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        }
+			      ],
+			      "SemanticType": "Time"
+			    },
+			    "takvim.date.month": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Calendar",
+			          "VariationSource": "Date",
+			          "VariationSet": "Variation",
+			          "Hierarchy": "Date Hierarchy",
+			          "HierarchyLevel": "Month"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "month": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "date month": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "date mth": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.75
+			          }
+			        },
+			        {
+			          "mth": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.736
+			          }
+			        },
+			        {
+			          "moment month": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "period month": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        }
+			      ],
+			      "SemanticType": "Time"
+			    },
+			    "takvim.date.day": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Calendar",
+			          "VariationSource": "Date",
+			          "VariationSet": "Variation",
+			          "Hierarchy": "Date Hierarchy",
+			          "HierarchyLevel": "Day"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "day": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "date day": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "moment day": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "period day": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        }
+			      ],
+			      "SemanticType": "Time"
+			    },
+			    "takvim.yıl": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Calendar",
+			          "ConceptualProperty": "Yıl"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "yıl": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "takvim.ay_no": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Calendar",
+			          "ConceptualProperty": "Ay No"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "ay no": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "ay number": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        }
+			      ]
+			    },
+			    "takvim.ay": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Calendar",
+			          "ConceptualProperty": "Ay"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "ay": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Transaction Date-Month": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Month": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "takvim.ay_kısa": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Calendar",
+			          "ConceptualProperty": "Ay Kısa"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "ay kısa": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "takvim.ay_yıl": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Calendar",
+			          "ConceptualProperty": "Ay Yıl"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "ay yıl": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "takvim.yılay_sıralama": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Calendar",
+			          "ConceptualProperty": "Yıl-Ay (Sıralama)"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "yıl-ay (sıralama)": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "yıl-ay": {
+			            "State": "Generated",
+			            "Weight": 0.75
+			          }
+			        },
+			        {
+			          "yıl ay (sıralama)": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        }
+			      ]
+			    },
+			    "takvim.çeyrek": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Calendar",
+			          "ConceptualProperty": "Çeyrek"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "çeyrek": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "takvim.yıl_çeyrek": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Calendar",
+			          "ConceptualProperty": "Yıl Çeyrek"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "yıl çeyrek": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "takvim.hafta_günü_no": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Calendar",
+			          "ConceptualProperty": "Hafta Günü No"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "hafta günü no": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "hafta günü number": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.739
+			          }
+			        }
+			      ]
+			    },
+			    "takvim.hafta_günü": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Calendar",
+			          "ConceptualProperty": "Hafta Günü"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "hafta günü": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "takvim.geçmiş_gelecek": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Calendar",
+			          "ConceptualProperty": "Geçmiş/Gelecek"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "geçmiş/gelecek": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "geçmiş": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "geçmiş gelecek": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "gelecek": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        }
+			      ]
+			    },
+			    "takvim.bu_ay_mı": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Calendar",
+			          "ConceptualProperty": "Bu Ay mı"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "bu ay mı": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "takvim.bu_yıl_mı": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Calendar",
+			          "ConceptualProperty": "Bu Yıl mı"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "bu yıl mı": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "takvim.bugünden_ay_farkı": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Calendar",
+			          "ConceptualProperty": "Bugünden Ay Farkı"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "bugünden ay farkı": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "rezervasyonlar": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Reservations"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "rezervasyonlar": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "rezervasyonlar.rez_no": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Reservations",
+			          "ConceptualProperty": "Rez.No"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "rez.no": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "rezervasyonlar.kabul": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Reservations",
+			          "ConceptualProperty": "Kabul"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "kabul": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "rezervasyonlar.ad_soyad": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Reservations",
+			          "ConceptualProperty": "Ad Soyad"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "ad soyad": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "advertisement soyad": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "poster soyad": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "flier soyad": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "flyer soyad": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "announcement soyad": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "billboard soyad": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "commercial soyad": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "trailer soyad": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "advert soyad": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "hoarding soyad": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        }
+			      ]
+			    },
+			    "rezervasyonlar.yaş": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Reservations",
+			          "ConceptualProperty": "Yaş"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "yaş": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Age": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "rezervasyonlar.otel": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Reservations",
+			          "ConceptualProperty": "Otel"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "otel": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Hotel": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "rezervasyonlar.geliş": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Reservations",
+			          "ConceptualProperty": "Geliş"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "geliş": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "date": {
+			            "State": "Generated",
+			            "Weight": 0.7
+			          }
+			        }
+			      ],
+			      "SemanticType": "Time"
+			    },
+			    "rezervasyonlar.ayrılış": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Reservations",
+			          "ConceptualProperty": "Ayrılış"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "ayrılış": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "date": {
+			            "State": "Generated",
+			            "Weight": 0.7
+			          }
+			        }
+			      ],
+			      "SemanticType": "Time"
+			    },
+			    "rezervasyonlar.ayrılış.date_hierarchy": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Reservations",
+			          "VariationSource": "Ayrılış",
+			          "VariationSet": "Variation",
+			          "Hierarchy": "Date Hierarchy"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "ayrılış date hierarchy": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "date hierarchy": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        }
+			      ],
+			      "SemanticType": "Time"
+			    },
+			    "rezervasyonlar.ayrılış.year": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Reservations",
+			          "VariationSource": "Ayrılış",
+			          "VariationSet": "Variation",
+			          "Hierarchy": "Date Hierarchy",
+			          "HierarchyLevel": "Year"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "ayrılış year": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "year": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "ayrılış yr": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.75
+			          }
+			        },
+			        {
+			          "yr": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.736
+			          }
+			        }
+			      ],
+			      "SemanticType": "Time"
+			    },
+			    "rezervasyonlar.ayrılış.quarter": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Reservations",
+			          "VariationSource": "Ayrılış",
+			          "VariationSet": "Variation",
+			          "Hierarchy": "Date Hierarchy",
+			          "HierarchyLevel": "Quarter"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "ayrılış quarter": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "quarter": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "ayrılış qtr": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.833
+			          }
+			        },
+			        {
+			          "qtr": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.818
+			          }
+			        }
+			      ],
+			      "SemanticType": "Time"
+			    },
+			    "rezervasyonlar.ayrılış.month": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Reservations",
+			          "VariationSource": "Ayrılış",
+			          "VariationSet": "Variation",
+			          "Hierarchy": "Date Hierarchy",
+			          "HierarchyLevel": "Month"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "ayrılış month": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "month": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "ayrılış mth": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.75
+			          }
+			        },
+			        {
+			          "mth": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.736
+			          }
+			        }
+			      ],
+			      "SemanticType": "Time"
+			    },
+			    "rezervasyonlar.ayrılış.day": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Reservations",
+			          "VariationSource": "Ayrılış",
+			          "VariationSet": "Variation",
+			          "Hierarchy": "Date Hierarchy",
+			          "HierarchyLevel": "Day"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "ayrılış day": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "day": {
+			            "State": "Generated"
+			          }
+			        }
+			      ],
+			      "SemanticType": "Time"
+			    },
+			    "rezervasyonlar.gece": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Reservations",
+			          "ConceptualProperty": "Gece"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "gece": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "rezervasyonlar.işlem_tarihi": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Reservations",
+			          "ConceptualProperty": "İşlem Tarihi"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "işlem tarihi": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "İşlem Tarihi": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "date": {
+			            "State": "Generated",
+			            "Weight": 0.7
+			          }
+			        }
+			      ],
+			      "SemanticType": "Time"
+			    },
+			    "rezervasyonlar.toplam": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Reservations",
+			          "ConceptualProperty": "Toplam"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "toplam": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "rezervasyonlar.yetişkin": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Reservations",
+			          "ConceptualProperty": "Yetişkin"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "yetişkin": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "rezervasyonlar.çocuk": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Reservations",
+			          "ConceptualProperty": "Çocuk"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "çocuk": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "rezervasyonlar.customer_segment": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Reservations",
+			          "ConceptualProperty": "Customer Segment"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "customer segment": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "segment": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "customer division": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.75
+			          }
+			        },
+			        {
+			          "customer subdivision": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.75
+			          }
+			        },
+			        {
+			          "division": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.736
+			          }
+			        },
+			        {
+			          "subdivision": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.736
+			          }
+			        },
+			        {
+			          "customer section": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "customer sector": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "customer bit": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "customer fragment": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "customer part": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "customer piece": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        }
+			      ]
+			    },
+			    "rezervasyonlar.on_alim_suresi": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Reservations",
+			          "ConceptualProperty": "On_Alim_Suresi"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "on alim suresi": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "On_Alim_Suresi": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "rezervasyonlar.family_type": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Reservations",
+			          "ConceptualProperty": "Family Type"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "family type": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "type": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "family category": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.75
+			          }
+			        },
+			        {
+			          "family genre": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.75
+			          }
+			        },
+			        {
+			          "family manner": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.75
+			          }
+			        },
+			        {
+			          "family variety": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.75
+			          }
+			        },
+			        {
+			          "category": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.736
+			          }
+			        },
+			        {
+			          "genre": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.736
+			          }
+			        },
+			        {
+			          "manner": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.736
+			          }
+			        },
+			        {
+			          "variety": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.736
+			          }
+			        },
+			        {
+			          "family brand": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "family class": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        }
+			      ]
+			    },
+			    "rezervasyonlar.age_group": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Reservations",
+			          "ConceptualProperty": "Age Group"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "age group": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "age category": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.75
+			          }
+			        },
+			        {
+			          "age organization": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.75
+			          }
+			        },
+			        {
+			          "age bracket": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "age class": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "age crew": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "age team": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "Age Groups": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "rezervasyonlar.sum_of_toplam_average_per_date": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Reservations",
+			          "ConceptualProperty": "Sum of Toplam average per Date"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "sum of toplam average per date": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "rezervasyonlar.kişiye_göre_harcama": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Reservations",
+			          "ConceptualProperty": "Kişiye Göre Harcama"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "kişiye göre harcama": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "mea.sum_of_On_Alim_Suresi_average_per_ad_soyad": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Meas",
+			          "ConceptualProperty": "Sum of On_Alim_Suresi average per Ad Soyad"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "sum of On_Alim_Suresi average per ad soyad": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Avg. Lead Time": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "rezervasyonlar.düzotel": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Reservations",
+			          "ConceptualProperty": "Düz-otel"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "düz-otel": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "düz otel": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        }
+			      ]
+			    },
+			    "rezervasyonlar.ziyaret_sayısı": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Reservations",
+			          "ConceptualProperty": "Ziyaret Sayısı"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "ziyaret sayısı": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Visits": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Number of Visits": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "misafirler": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Guests"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "misafirler": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "misafirler.ad_soyad": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Guests",
+			          "ConceptualProperty": "Ad Soyad"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "ad soyad": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "advertisement soyad": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "poster soyad": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "flier soyad": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "flyer soyad": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "announcement soyad": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "billboard soyad": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "commercial soyad": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "trailer soyad": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "advert soyad": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "hoarding soyad": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "Customer": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "oteller": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Hotels"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "oteller": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "oteller.otel_adı": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Hotels",
+			          "ConceptualProperty": "Otel Adı"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "otel adı": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "oteller.ülke": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Hotels",
+			          "ConceptualProperty": "Ülke"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "ülke": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "oteller.şehir": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Hotels",
+			          "ConceptualProperty": "Şehir"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "şehir": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "oteller.ilçe": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Hotels",
+			          "ConceptualProperty": "İlçe"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "ilçe": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "İlçe": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "oteller.otel_sınıfı": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Hotels",
+			          "ConceptualProperty": "Otel Sınıfı"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "otel sınıfı": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "oteller.düzotel_adı": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Hotels",
+			          "ConceptualProperty": "Düz-Otel Adı"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "düz-otel adı": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "düz otel adı": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        }
+			      ]
+			    },
+			    "oteller.ülke_hierarchy": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Hotels",
+			          "Hierarchy": "Ülke Hierarchy"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "ülke hierarchy": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "ülke ladder": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "ülke grading": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "ülke order": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "ülke pyramid": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        }
+			      ]
+			    },
+			    "oteller.ülke_hierarchy.ülke": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Hotels",
+			          "Hierarchy": "Ülke Hierarchy",
+			          "HierarchyLevel": "Ülke"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "ülke": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "oteller.ülke_hierarchy.şehir": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Hotels",
+			          "Hierarchy": "Ülke Hierarchy",
+			          "HierarchyLevel": "Şehir"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "şehir": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "oteller.ülke_hierarchy.ilçe": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Hotels",
+			          "Hierarchy": "Ülke Hierarchy",
+			          "HierarchyLevel": "İlçe"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "ilçe": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "İlçe": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "rezervasyonlar.müşteri_sayısı": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Reservations",
+			          "ConceptualProperty": "Müşteri Sayısı"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "müşteri sayısı": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Number of Customers": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "rezervasyonlar.satış_sayısı": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Reservations",
+			          "ConceptualProperty": "Satış Sayısı"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "satış sayısı": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Number of Sales": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "rezervasyonlar.geliş_bins": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Reservations",
+			          "ConceptualProperty": "Geliş (bins)"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "geliş (bins)": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "geliş (bin)": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.78
+			          }
+			        },
+			        {
+			          "date": {
+			            "State": "Generated",
+			            "Weight": 0.7
+			          }
+			        },
+			        {
+			          "geliş": {
+			            "State": "Generated",
+			            "Weight": 0.75
+			          }
+			        },
+			        {
+			          "Arrival Date (bins)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ],
+			      "SemanticType": "Time"
+			    }
+			  },
+			  "Relationships": {
+			    "oteller_ülke_hierarchy_ülke_has_oteller_ülke_hierarchy_şehir": {
+			      "Binding": {
+			        "ConceptualEntity": "Hotels"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "oteller.ülke_hierarchy.ülke": {
+			          "Target": {
+			            "Entity": "oteller.ülke_hierarchy.ülke"
+			          }
+			        },
+			        "oteller.ülke_hierarchy.şehir": {
+			          "Target": {
+			            "Entity": "oteller.ülke_hierarchy.şehir"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "oteller.ülke_hierarchy.ülke"
+			            },
+			            "Object": {
+			              "Role": "oteller.ülke_hierarchy.şehir"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "ülkes_have_şehirs"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "oteller.ülke_hierarchy.şehir"
+			            },
+			            "Object": {
+			              "Role": "oteller.ülke_hierarchy.ülke"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "şehirs_have_ülkes"
+			        },
+			        {
+			          "Preposition": {
+			            "Subject": {
+			              "Role": "oteller.ülke_hierarchy.şehir"
+			            },
+			            "Prepositions": [
+			              {
+			                "in": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Object": {
+			              "Role": "oteller.ülke_hierarchy.ülke"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "şehirs_are_in_ülkes"
+			        }
+			      ]
+			    },
+			    "oteller_ülke_hierarchy_has_ilçe": {
+			      "Binding": {
+			        "ConceptualEntity": "Hotels"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "oteller.ülke_hierarchy": {
+			          "Target": {
+			            "Entity": "oteller.ülke_hierarchy"
+			          }
+			        },
+			        "oteller.ülke_hierarchy.ilçe": {
+			          "Target": {
+			            "Entity": "oteller.ülke_hierarchy.ilçe"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "oteller.ülke_hierarchy"
+			            },
+			            "Object": {
+			              "Role": "oteller.ülke_hierarchy.ilçe"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "ülke_hierarchies_have_ilçes"
+			        }
+			      ]
+			    },
+			    "oteller_ülke_hierarchy_has_şehir": {
+			      "Binding": {
+			        "ConceptualEntity": "Hotels"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "oteller.ülke_hierarchy": {
+			          "Target": {
+			            "Entity": "oteller.ülke_hierarchy"
+			          }
+			        },
+			        "oteller.ülke_hierarchy.şehir": {
+			          "Target": {
+			            "Entity": "oteller.ülke_hierarchy.şehir"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "oteller.ülke_hierarchy"
+			            },
+			            "Object": {
+			              "Role": "oteller.ülke_hierarchy.şehir"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "ülke_hierarchies_have_şehirs"
+			        }
+			      ]
+			    },
+			    "oteller_ülke_hierarchy_has_ülke": {
+			      "Binding": {
+			        "ConceptualEntity": "Hotels"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "oteller.ülke_hierarchy": {
+			          "Target": {
+			            "Entity": "oteller.ülke_hierarchy"
+			          }
+			        },
+			        "oteller.ülke_hierarchy.ülke": {
+			          "Target": {
+			            "Entity": "oteller.ülke_hierarchy.ülke"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "oteller.ülke_hierarchy"
+			            },
+			            "Object": {
+			              "Role": "oteller.ülke_hierarchy.ülke"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "ülke_hierarchies_have_ülkes"
+			        }
+			      ]
+			    },
+			    "rezervasyonlar_ayrılış_date_hierarchy_has_rezervasyonlar_ayrılış_day": {
+			      "Binding": {
+			        "ConceptualEntity": "Reservations"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "rezervasyonlar.ayrılış.date_hierarchy": {
+			          "Target": {
+			            "Entity": "rezervasyonlar.ayrılış.date_hierarchy"
+			          }
+			        },
+			        "rezervasyonlar.ayrılış.day": {
+			          "Target": {
+			            "Entity": "rezervasyonlar.ayrılış.day"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "rezervasyonlar.ayrılış.date_hierarchy"
+			            },
+			            "Object": {
+			              "Role": "rezervasyonlar.ayrılış.day"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "ayrılış_date_hierarchies_have_ayrılış_days"
+			        }
+			      ]
+			    },
+			    "rezervasyonlar_ayrılış_date_hierarchy_has_rezervasyonlar_ayrılış_month": {
+			      "Binding": {
+			        "ConceptualEntity": "Reservations"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "rezervasyonlar.ayrılış.date_hierarchy": {
+			          "Target": {
+			            "Entity": "rezervasyonlar.ayrılış.date_hierarchy"
+			          }
+			        },
+			        "rezervasyonlar.ayrılış.month": {
+			          "Target": {
+			            "Entity": "rezervasyonlar.ayrılış.month"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "rezervasyonlar.ayrılış.date_hierarchy"
+			            },
+			            "Object": {
+			              "Role": "rezervasyonlar.ayrılış.month"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "ayrılış_date_hierarchies_have_ayrılış_months"
+			        }
+			      ]
+			    },
+			    "rezervasyonlar_ayrılış_date_hierarchy_has_rezervasyonlar_ayrılış_quarter": {
+			      "Binding": {
+			        "ConceptualEntity": "Reservations"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "rezervasyonlar.ayrılış.date_hierarchy": {
+			          "Target": {
+			            "Entity": "rezervasyonlar.ayrılış.date_hierarchy"
+			          }
+			        },
+			        "rezervasyonlar.ayrılış.quarter": {
+			          "Target": {
+			            "Entity": "rezervasyonlar.ayrılış.quarter"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "rezervasyonlar.ayrılış.date_hierarchy"
+			            },
+			            "Object": {
+			              "Role": "rezervasyonlar.ayrılış.quarter"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "ayrılış_date_hierarchies_have_ayrılış_quarters"
+			        }
+			      ]
+			    },
+			    "rezervasyonlar_ayrılış_date_hierarchy_has_rezervasyonlar_ayrılış_year": {
+			      "Binding": {
+			        "ConceptualEntity": "Reservations"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "rezervasyonlar.ayrılış.date_hierarchy": {
+			          "Target": {
+			            "Entity": "rezervasyonlar.ayrılış.date_hierarchy"
+			          }
+			        },
+			        "rezervasyonlar.ayrılış.year": {
+			          "Target": {
+			            "Entity": "rezervasyonlar.ayrılış.year"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "rezervasyonlar.ayrılış.date_hierarchy"
+			            },
+			            "Object": {
+			              "Role": "rezervasyonlar.ayrılış.year"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "ayrılış_date_hierarchies_have_ayrılış_years"
+			        }
+			      ]
+			    },
+			    "rezervasyonlar_ayrılış_has_date_hierarchy": {
+			      "Binding": {
+			        "ConceptualEntity": "Reservations"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "rezervasyonlar.ayrılış": {
+			          "Target": {
+			            "Entity": "rezervasyonlar.ayrılış"
+			          }
+			        },
+			        "rezervasyonlar.ayrılış.date_hierarchy": {
+			          "Target": {
+			            "Entity": "rezervasyonlar.ayrılış.date_hierarchy"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "rezervasyonlar.ayrılış"
+			            },
+			            "Object": {
+			              "Role": "rezervasyonlar.ayrılış.date_hierarchy"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "ayrılış_have_ayrılış_date_hierarchies"
+			        }
+			      ]
+			    },
+			    "takvim_date_date_hierarchy_has_takvim_date_day": {
+			      "Binding": {
+			        "ConceptualEntity": "Calendar"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "takvim.date.date_hierarchy": {
+			          "Target": {
+			            "Entity": "takvim.date.date_hierarchy"
+			          }
+			        },
+			        "takvim.date.day": {
+			          "Target": {
+			            "Entity": "takvim.date.day"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "takvim.date.date_hierarchy"
+			            },
+			            "Object": {
+			              "Role": "takvim.date.day"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "date_hierarchies_have_days"
+			        }
+			      ]
+			    },
+			    "takvim_date_date_hierarchy_has_takvim_date_month": {
+			      "Binding": {
+			        "ConceptualEntity": "Calendar"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "takvim.date.date_hierarchy": {
+			          "Target": {
+			            "Entity": "takvim.date.date_hierarchy"
+			          }
+			        },
+			        "takvim.date.month": {
+			          "Target": {
+			            "Entity": "takvim.date.month"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "takvim.date.date_hierarchy"
+			            },
+			            "Object": {
+			              "Role": "takvim.date.month"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "date_hierarchies_have_months"
+			        }
+			      ]
+			    },
+			    "takvim_date_date_hierarchy_has_takvim_date_quarter": {
+			      "Binding": {
+			        "ConceptualEntity": "Calendar"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "takvim.date.date_hierarchy": {
+			          "Target": {
+			            "Entity": "takvim.date.date_hierarchy"
+			          }
+			        },
+			        "takvim.date.quarter": {
+			          "Target": {
+			            "Entity": "takvim.date.quarter"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "takvim.date.date_hierarchy"
+			            },
+			            "Object": {
+			              "Role": "takvim.date.quarter"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "date_hierarchies_have_quarters"
+			        }
+			      ]
+			    },
+			    "takvim_date_date_hierarchy_has_takvim_date_year": {
+			      "Binding": {
+			        "ConceptualEntity": "Calendar"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "takvim.date.date_hierarchy": {
+			          "Target": {
+			            "Entity": "takvim.date.date_hierarchy"
+			          }
+			        },
+			        "takvim.date.year": {
+			          "Target": {
+			            "Entity": "takvim.date.year"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "takvim.date.date_hierarchy"
+			            },
+			            "Object": {
+			              "Role": "takvim.date.year"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "date_hierarchies_have_years"
+			        }
+			      ]
+			    },
+			    "takvim_date_has_date_hierarchy": {
+			      "Binding": {
+			        "ConceptualEntity": "Calendar"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "takvim.date": {
+			          "Target": {
+			            "Entity": "takvim.date"
+			          }
+			        },
+			        "takvim.date.date_hierarchy": {
+			          "Target": {
+			            "Entity": "takvim.date.date_hierarchy"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "takvim.date"
+			            },
+			            "Object": {
+			              "Role": "takvim.date.date_hierarchy"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dates_have_date_hierarchies"
+			        }
+			      ]
+			    },
+			    "rezervasyonlar_has_takvim": {
+			      "Binding": {
+			        "ConceptualEntity": "Reservations"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "rezervasyonlar": {
+			          "Target": {
+			            "Entity": "rezervasyonlar"
+			          }
+			        },
+			        "takvim": {
+			          "Target": {
+			            "Entity": "takvim"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "rezervasyonlar"
+			            },
+			            "Object": {
+			              "Role": "takvim"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "rezervasyonlars_have_takvims"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "takvim"
+			            },
+			            "Object": {
+			              "Role": "rezervasyonlar"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "takvims_have_rezervasyonlars"
+			        }
+			      ]
+			    },
+			    "rezervasyonlar_has_oteller": {
+			      "Binding": {
+			        "ConceptualEntity": "Reservations"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "rezervasyonlar": {
+			          "Target": {
+			            "Entity": "rezervasyonlar"
+			          }
+			        },
+			        "oteller": {
+			          "Target": {
+			            "Entity": "oteller"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "rezervasyonlar"
+			            },
+			            "Object": {
+			              "Role": "oteller"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "rezervasyonlars_have_otellers"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "oteller"
+			            },
+			            "Object": {
+			              "Role": "rezervasyonlar"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "otellers_have_rezervasyonlars"
+			        }
+			      ]
+			    },
+			    "rezervasyonlar_has_misafirler": {
+			      "Binding": {
+			        "ConceptualEntity": "Reservations"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "rezervasyonlar": {
+			          "Target": {
+			            "Entity": "rezervasyonlar"
+			          }
+			        },
+			        "misafirler": {
+			          "Target": {
+			            "Entity": "misafirler"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "rezervasyonlar"
+			            },
+			            "Object": {
+			              "Role": "misafirler"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "rezervasyonlars_have_misafirlers"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "misafirler"
+			            },
+			            "Object": {
+			              "Role": "rezervasyonlar"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "misafirlers_have_rezervasyonlars"
+			        }
+			      ]
+			    },
+			    "rezervasyonlar_has_geliş_bins": {
+			      "Binding": {
+			        "ConceptualEntity": "Reservations"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "rezervasyonlar": {
+			          "Target": {
+			            "Entity": "rezervasyonlar"
+			          }
+			        },
+			        "rezervasyonlar.geliş_bins": {
+			          "Target": {
+			            "Entity": "rezervasyonlar.geliş_bins"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "rezervasyonlar"
+			            },
+			            "Object": {
+			              "Role": "rezervasyonlar.geliş_bins"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "rezervasyonlars_have_geliş_bins"
+			        }
+			      ]
+			    },
+			    "rezervasyonlar_has_satış_sayısı": {
+			      "Binding": {
+			        "ConceptualEntity": "Reservations"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "rezervasyonlar": {
+			          "Target": {
+			            "Entity": "rezervasyonlar"
+			          }
+			        },
+			        "rezervasyonlar.satış_sayısı": {
+			          "Target": {
+			            "Entity": "rezervasyonlar.satış_sayısı"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "rezervasyonlar"
+			            },
+			            "Object": {
+			              "Role": "rezervasyonlar.satış_sayısı"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "rezervasyonlars_have_satış_sayısı"
+			        }
+			      ]
+			    },
+			    "rezervasyonlar_has_müşteri_sayısı": {
+			      "Binding": {
+			        "ConceptualEntity": "Reservations"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "rezervasyonlar": {
+			          "Target": {
+			            "Entity": "rezervasyonlar"
+			          }
+			        },
+			        "rezervasyonlar.müşteri_sayısı": {
+			          "Target": {
+			            "Entity": "rezervasyonlar.müşteri_sayısı"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "rezervasyonlar"
+			            },
+			            "Object": {
+			              "Role": "rezervasyonlar.müşteri_sayısı"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "rezervasyonlars_have_müşteri_sayısı"
+			        }
+			      ]
+			    },
+			    "oteller_has_ülke_hierarchy": {
+			      "Binding": {
+			        "ConceptualEntity": "Hotels"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "oteller": {
+			          "Target": {
+			            "Entity": "oteller"
+			          }
+			        },
+			        "oteller.ülke_hierarchy": {
+			          "Target": {
+			            "Entity": "oteller.ülke_hierarchy"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "oteller"
+			            },
+			            "Object": {
+			              "Role": "oteller.ülke_hierarchy"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "otellers_have_ülke_hierarchies"
+			        }
+			      ]
+			    },
+			    "oteller_has_düzotel_adı": {
+			      "Binding": {
+			        "ConceptualEntity": "Hotels"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "oteller": {
+			          "Target": {
+			            "Entity": "oteller"
+			          }
+			        },
+			        "oteller.düzotel_adı": {
+			          "Target": {
+			            "Entity": "oteller.düzotel_adı"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "oteller"
+			            },
+			            "Object": {
+			              "Role": "oteller.düzotel_adı"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "otellers_have_düzotel_adı"
+			        }
+			      ]
+			    },
+			    "oteller_has_otel_sınıfı": {
+			      "Binding": {
+			        "ConceptualEntity": "Hotels"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "oteller": {
+			          "Target": {
+			            "Entity": "oteller"
+			          }
+			        },
+			        "oteller.otel_sınıfı": {
+			          "Target": {
+			            "Entity": "oteller.otel_sınıfı"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "oteller"
+			            },
+			            "Object": {
+			              "Role": "oteller.otel_sınıfı"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "otellers_have_otel_sınıfı"
+			        }
+			      ]
+			    },
+			    "oteller_has_ilçe": {
+			      "Binding": {
+			        "ConceptualEntity": "Hotels"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "oteller": {
+			          "Target": {
+			            "Entity": "oteller"
+			          }
+			        },
+			        "oteller.ilçe": {
+			          "Target": {
+			            "Entity": "oteller.ilçe"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "oteller"
+			            },
+			            "Object": {
+			              "Role": "oteller.ilçe"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "otellers_have_ilçes"
+			        }
+			      ]
+			    },
+			    "oteller_has_şehir": {
+			      "Binding": {
+			        "ConceptualEntity": "Hotels"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "oteller": {
+			          "Target": {
+			            "Entity": "oteller"
+			          }
+			        },
+			        "oteller.şehir": {
+			          "Target": {
+			            "Entity": "oteller.şehir"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "oteller"
+			            },
+			            "Object": {
+			              "Role": "oteller.şehir"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "otellers_have_şehirs"
+			        }
+			      ]
+			    },
+			    "oteller_has_ülke": {
+			      "Binding": {
+			        "ConceptualEntity": "Hotels"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "oteller": {
+			          "Target": {
+			            "Entity": "oteller"
+			          }
+			        },
+			        "oteller.ülke": {
+			          "Target": {
+			            "Entity": "oteller.ülke"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "oteller"
+			            },
+			            "Object": {
+			              "Role": "oteller.ülke"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "otellers_have_ülkes"
+			        }
+			      ]
+			    },
+			    "oteller_has_otel_adı": {
+			      "Binding": {
+			        "ConceptualEntity": "Hotels"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "oteller": {
+			          "Target": {
+			            "Entity": "oteller"
+			          }
+			        },
+			        "oteller.otel_adı": {
+			          "Target": {
+			            "Entity": "oteller.otel_adı"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "oteller"
+			            },
+			            "Object": {
+			              "Role": "oteller.otel_adı"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "otellers_have_otel_adı"
+			        }
+			      ]
+			    },
+			    "misafirler_has_ad_soyad": {
+			      "Binding": {
+			        "ConceptualEntity": "Guests"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "misafirler": {
+			          "Target": {
+			            "Entity": "misafirler"
+			          }
+			        },
+			        "misafirler.ad_soyad": {
+			          "Target": {
+			            "Entity": "misafirler.ad_soyad"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "misafirler"
+			            },
+			            "Object": {
+			              "Role": "misafirler.ad_soyad"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "misafirlers_have_ad_soyad"
+			        }
+			      ]
+			    },
+			    "rezervasyonlar_has_ziyaret_sayısı": {
+			      "Binding": {
+			        "ConceptualEntity": "Reservations"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "rezervasyonlar": {
+			          "Target": {
+			            "Entity": "rezervasyonlar"
+			          }
+			        },
+			        "rezervasyonlar.ziyaret_sayısı": {
+			          "Target": {
+			            "Entity": "rezervasyonlar.ziyaret_sayısı"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "rezervasyonlar"
+			            },
+			            "Object": {
+			              "Role": "rezervasyonlar.ziyaret_sayısı"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "rezervasyonlars_have_ziyaret_sayısı"
+			        }
+			      ]
+			    },
+			    "rezervasyonlar_has_mea_sum_of_On_Alim_Suresi_average_per_ad_soyad": {
+			      "Binding": {
+			        "ConceptualEntity": "Reservations"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "rezervasyonlar": {
+			          "Target": {
+			            "Entity": "rezervasyonlar"
+			          }
+			        },
+			        "mea.sum_of_On_Alim_Suresi_average_per_ad_soyad": {
+			          "Target": {
+			            "Entity": "mea.sum_of_On_Alim_Suresi_average_per_ad_soyad"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "rezervasyonlar"
+			            },
+			            "Object": {
+			              "Role": "mea.sum_of_On_Alim_Suresi_average_per_ad_soyad"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "rezervasyonlars_have_sum_of_On_Alim_Suresi_average_per_ad_soyad"
+			        }
+			      ]
+			    },
+			    "rezervasyonlar_has_kişiye_göre_harcama": {
+			      "Binding": {
+			        "ConceptualEntity": "Reservations"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "rezervasyonlar": {
+			          "Target": {
+			            "Entity": "rezervasyonlar"
+			          }
+			        },
+			        "rezervasyonlar.kişiye_göre_harcama": {
+			          "Target": {
+			            "Entity": "rezervasyonlar.kişiye_göre_harcama"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "rezervasyonlar"
+			            },
+			            "Object": {
+			              "Role": "rezervasyonlar.kişiye_göre_harcama"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "rezervasyonlars_have_kişiye_göre_harcama"
+			        }
+			      ]
+			    },
+			    "rezervasyonlar_has_sum_of_toplam_average_per_date": {
+			      "Binding": {
+			        "ConceptualEntity": "Reservations"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "rezervasyonlar": {
+			          "Target": {
+			            "Entity": "rezervasyonlar"
+			          }
+			        },
+			        "rezervasyonlar.sum_of_toplam_average_per_date": {
+			          "Target": {
+			            "Entity": "rezervasyonlar.sum_of_toplam_average_per_date"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "rezervasyonlar"
+			            },
+			            "Object": {
+			              "Role": "rezervasyonlar.sum_of_toplam_average_per_date"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "rezervasyonlars_have_sum_of_toplam_average_per_date"
+			        }
+			      ]
+			    },
+			    "rezervasyonlar_has_age_group": {
+			      "Binding": {
+			        "ConceptualEntity": "Reservations"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "rezervasyonlar": {
+			          "Target": {
+			            "Entity": "rezervasyonlar"
+			          }
+			        },
+			        "rezervasyonlar.age_group": {
+			          "Target": {
+			            "Entity": "rezervasyonlar.age_group"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "rezervasyonlar"
+			            },
+			            "Object": {
+			              "Role": "rezervasyonlar.age_group"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "rezervasyonlars_have_age_groups"
+			        }
+			      ]
+			    },
+			    "rezervasyonlar_has_family_type": {
+			      "Binding": {
+			        "ConceptualEntity": "Reservations"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "rezervasyonlar": {
+			          "Target": {
+			            "Entity": "rezervasyonlar"
+			          }
+			        },
+			        "rezervasyonlar.family_type": {
+			          "Target": {
+			            "Entity": "rezervasyonlar.family_type"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "rezervasyonlar"
+			            },
+			            "Object": {
+			              "Role": "rezervasyonlar.family_type"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "rezervasyonlars_have_family_types"
+			        }
+			      ]
+			    },
+			    "rezervasyonlar_has_on_alim_suresi": {
+			      "Binding": {
+			        "ConceptualEntity": "Reservations"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "rezervasyonlar": {
+			          "Target": {
+			            "Entity": "rezervasyonlar"
+			          }
+			        },
+			        "rezervasyonlar.on_alim_suresi": {
+			          "Target": {
+			            "Entity": "rezervasyonlar.on_alim_suresi"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "rezervasyonlar"
+			            },
+			            "Object": {
+			              "Role": "rezervasyonlar.on_alim_suresi"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "rezervasyonlars_have_on_alim_suresi"
+			        }
+			      ]
+			    },
+			    "rezervasyonlar_has_customer_segment": {
+			      "Binding": {
+			        "ConceptualEntity": "Reservations"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "rezervasyonlar": {
+			          "Target": {
+			            "Entity": "rezervasyonlar"
+			          }
+			        },
+			        "rezervasyonlar.customer_segment": {
+			          "Target": {
+			            "Entity": "rezervasyonlar.customer_segment"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "rezervasyonlar"
+			            },
+			            "Object": {
+			              "Role": "rezervasyonlar.customer_segment"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "rezervasyonlars_have_customer_segments"
+			        }
+			      ]
+			    },
+			    "rezervasyonlar_has_çocuk": {
+			      "Binding": {
+			        "ConceptualEntity": "Reservations"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "rezervasyonlar": {
+			          "Target": {
+			            "Entity": "rezervasyonlar"
+			          }
+			        },
+			        "rezervasyonlar.çocuk": {
+			          "Target": {
+			            "Entity": "rezervasyonlar.çocuk"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "rezervasyonlar"
+			            },
+			            "Object": {
+			              "Role": "rezervasyonlar.çocuk"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "rezervasyonlars_have_çocuks"
+			        }
+			      ]
+			    },
+			    "rezervasyonlar_has_yetişkin": {
+			      "Binding": {
+			        "ConceptualEntity": "Reservations"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "rezervasyonlar": {
+			          "Target": {
+			            "Entity": "rezervasyonlar"
+			          }
+			        },
+			        "rezervasyonlar.yetişkin": {
+			          "Target": {
+			            "Entity": "rezervasyonlar.yetişkin"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "rezervasyonlar"
+			            },
+			            "Object": {
+			              "Role": "rezervasyonlar.yetişkin"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "rezervasyonlars_have_yetişkins"
+			        }
+			      ]
+			    },
+			    "rezervasyonlar_has_toplam": {
+			      "Binding": {
+			        "ConceptualEntity": "Reservations"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "rezervasyonlar": {
+			          "Target": {
+			            "Entity": "rezervasyonlar"
+			          }
+			        },
+			        "rezervasyonlar.toplam": {
+			          "Target": {
+			            "Entity": "rezervasyonlar.toplam"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "rezervasyonlar"
+			            },
+			            "Object": {
+			              "Role": "rezervasyonlar.toplam"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "rezervasyonlars_have_toplams"
+			        }
+			      ]
+			    },
+			    "rezervasyonlar_has_işlem_tarihi": {
+			      "Binding": {
+			        "ConceptualEntity": "Reservations"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "rezervasyonlar": {
+			          "Target": {
+			            "Entity": "rezervasyonlar"
+			          }
+			        },
+			        "rezervasyonlar.işlem_tarihi": {
+			          "Target": {
+			            "Entity": "rezervasyonlar.işlem_tarihi"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "rezervasyonlar"
+			            },
+			            "Object": {
+			              "Role": "rezervasyonlar.işlem_tarihi"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "rezervasyonlars_have_işlem_tarihis"
+			        }
+			      ]
+			    },
+			    "rezervasyonlar_has_gece": {
+			      "Binding": {
+			        "ConceptualEntity": "Reservations"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "rezervasyonlar": {
+			          "Target": {
+			            "Entity": "rezervasyonlar"
+			          }
+			        },
+			        "rezervasyonlar.gece": {
+			          "Target": {
+			            "Entity": "rezervasyonlar.gece"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "rezervasyonlar"
+			            },
+			            "Object": {
+			              "Role": "rezervasyonlar.gece"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "rezervasyonlars_have_geces"
+			        }
+			      ]
+			    },
+			    "rezervasyonlar_has_ayrılış": {
+			      "Binding": {
+			        "ConceptualEntity": "Reservations"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "rezervasyonlar": {
+			          "Target": {
+			            "Entity": "rezervasyonlar"
+			          }
+			        },
+			        "rezervasyonlar.ayrılış": {
+			          "Target": {
+			            "Entity": "rezervasyonlar.ayrılış"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "rezervasyonlar"
+			            },
+			            "Object": {
+			              "Role": "rezervasyonlar.ayrılış"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "rezervasyonlars_have_ayrılış"
+			        }
+			      ]
+			    },
+			    "rezervasyonlar_has_geliş": {
+			      "Binding": {
+			        "ConceptualEntity": "Reservations"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "rezervasyonlar": {
+			          "Target": {
+			            "Entity": "rezervasyonlar"
+			          }
+			        },
+			        "rezervasyonlar.geliş": {
+			          "Target": {
+			            "Entity": "rezervasyonlar.geliş"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "rezervasyonlar"
+			            },
+			            "Object": {
+			              "Role": "rezervasyonlar.geliş"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "rezervasyonlars_have_geliş"
+			        }
+			      ]
+			    },
+			    "rezervasyonlar_has_otel": {
+			      "Binding": {
+			        "ConceptualEntity": "Reservations"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "rezervasyonlar": {
+			          "Target": {
+			            "Entity": "rezervasyonlar"
+			          }
+			        },
+			        "rezervasyonlar.otel": {
+			          "Target": {
+			            "Entity": "rezervasyonlar.otel"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "rezervasyonlar"
+			            },
+			            "Object": {
+			              "Role": "rezervasyonlar.otel"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "rezervasyonlars_have_otels"
+			        }
+			      ]
+			    },
+			    "rezervasyonlar_has_yaş": {
+			      "Binding": {
+			        "ConceptualEntity": "Reservations"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "rezervasyonlar": {
+			          "Target": {
+			            "Entity": "rezervasyonlar"
+			          }
+			        },
+			        "rezervasyonlar.yaş": {
+			          "Target": {
+			            "Entity": "rezervasyonlar.yaş"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "rezervasyonlar"
+			            },
+			            "Object": {
+			              "Role": "rezervasyonlar.yaş"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "rezervasyonlars_have_yaş"
+			        },
+			        {
+			          "Adjective": {
+			            "Subject": {
+			              "Role": "rezervasyonlar"
+			            },
+			            "Adjectives": [
+			              {
+			                "old": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Antonyms": [
+			              {
+			                "young": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Measurement": {
+			              "Role": "rezervasyonlar.yaş"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "yaş_indicates_how_old_rezervasyonlars_are"
+			        }
+			      ]
+			    },
+			    "rezervasyonlar_has_kabul": {
+			      "Binding": {
+			        "ConceptualEntity": "Reservations"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "rezervasyonlar": {
+			          "Target": {
+			            "Entity": "rezervasyonlar"
+			          }
+			        },
+			        "rezervasyonlar.kabul": {
+			          "Target": {
+			            "Entity": "rezervasyonlar.kabul"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "rezervasyonlar"
+			            },
+			            "Object": {
+			              "Role": "rezervasyonlar.kabul"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "rezervasyonlars_have_kabul"
+			        }
+			      ]
+			    },
+			    "rezervasyonlar_has_rez_no": {
+			      "Binding": {
+			        "ConceptualEntity": "Reservations"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "rezervasyonlar": {
+			          "Target": {
+			            "Entity": "rezervasyonlar"
+			          }
+			        },
+			        "rezervasyonlar.rez_no": {
+			          "Target": {
+			            "Entity": "rezervasyonlar.rez_no"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "rezervasyonlar"
+			            },
+			            "Object": {
+			              "Role": "rezervasyonlar.rez_no"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "rezervasyonlars_have_rez_nos"
+			        }
+			      ]
+			    },
+			    "takvim_has_bugünden_ay_farkı": {
+			      "Binding": {
+			        "ConceptualEntity": "Calendar"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "takvim": {
+			          "Target": {
+			            "Entity": "takvim"
+			          }
+			        },
+			        "takvim.bugünden_ay_farkı": {
+			          "Target": {
+			            "Entity": "takvim.bugünden_ay_farkı"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "takvim"
+			            },
+			            "Object": {
+			              "Role": "takvim.bugünden_ay_farkı"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "takvims_have_bugünden_ay_farkı"
+			        }
+			      ]
+			    },
+			    "takvim_has_bu_yıl_mı": {
+			      "Binding": {
+			        "ConceptualEntity": "Calendar"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "takvim": {
+			          "Target": {
+			            "Entity": "takvim"
+			          }
+			        },
+			        "takvim.bu_yıl_mı": {
+			          "Target": {
+			            "Entity": "takvim.bu_yıl_mı"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "takvim"
+			            },
+			            "Object": {
+			              "Role": "takvim.bu_yıl_mı"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "takvims_have_bu_yıl_mı"
+			        }
+			      ]
+			    },
+			    "takvim_has_bu_ay_mı": {
+			      "Binding": {
+			        "ConceptualEntity": "Calendar"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "takvim": {
+			          "Target": {
+			            "Entity": "takvim"
+			          }
+			        },
+			        "takvim.bu_ay_mı": {
+			          "Target": {
+			            "Entity": "takvim.bu_ay_mı"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "takvim"
+			            },
+			            "Object": {
+			              "Role": "takvim.bu_ay_mı"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "takvims_have_bu_ay_mı"
+			        }
+			      ]
+			    },
+			    "takvim_has_geçmiş_gelecek": {
+			      "Binding": {
+			        "ConceptualEntity": "Calendar"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "takvim": {
+			          "Target": {
+			            "Entity": "takvim"
+			          }
+			        },
+			        "takvim.geçmiş_gelecek": {
+			          "Target": {
+			            "Entity": "takvim.geçmiş_gelecek"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "takvim"
+			            },
+			            "Object": {
+			              "Role": "takvim.geçmiş_gelecek"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "takvims_have_geçmiş_geleceks"
+			        }
+			      ]
+			    },
+			    "takvim_has_hafta_günü": {
+			      "Binding": {
+			        "ConceptualEntity": "Calendar"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "takvim": {
+			          "Target": {
+			            "Entity": "takvim"
+			          }
+			        },
+			        "takvim.hafta_günü": {
+			          "Target": {
+			            "Entity": "takvim.hafta_günü"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "takvim"
+			            },
+			            "Object": {
+			              "Role": "takvim.hafta_günü"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "takvims_have_hafta_günü"
+			        }
+			      ]
+			    },
+			    "takvim_has_hafta_günü_no": {
+			      "Binding": {
+			        "ConceptualEntity": "Calendar"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "takvim": {
+			          "Target": {
+			            "Entity": "takvim"
+			          }
+			        },
+			        "takvim.hafta_günü_no": {
+			          "Target": {
+			            "Entity": "takvim.hafta_günü_no"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "takvim"
+			            },
+			            "Object": {
+			              "Role": "takvim.hafta_günü_no"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "takvims_have_hafta_günü_noes"
+			        }
+			      ]
+			    },
+			    "takvim_has_yıl_çeyrek": {
+			      "Binding": {
+			        "ConceptualEntity": "Calendar"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "takvim": {
+			          "Target": {
+			            "Entity": "takvim"
+			          }
+			        },
+			        "takvim.yıl_çeyrek": {
+			          "Target": {
+			            "Entity": "takvim.yıl_çeyrek"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "takvim"
+			            },
+			            "Object": {
+			              "Role": "takvim.yıl_çeyrek"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "takvims_have_yıl_çeyreks"
+			        }
+			      ]
+			    },
+			    "takvim_has_çeyrek": {
+			      "Binding": {
+			        "ConceptualEntity": "Calendar"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "takvim": {
+			          "Target": {
+			            "Entity": "takvim"
+			          }
+			        },
+			        "takvim.çeyrek": {
+			          "Target": {
+			            "Entity": "takvim.çeyrek"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "takvim"
+			            },
+			            "Object": {
+			              "Role": "takvim.çeyrek"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "takvims_have_çeyreks"
+			        }
+			      ]
+			    },
+			    "takvim_has_yılay_sıralama": {
+			      "Binding": {
+			        "ConceptualEntity": "Calendar"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "takvim": {
+			          "Target": {
+			            "Entity": "takvim"
+			          }
+			        },
+			        "takvim.yılay_sıralama": {
+			          "Target": {
+			            "Entity": "takvim.yılay_sıralama"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "takvim"
+			            },
+			            "Object": {
+			              "Role": "takvim.yılay_sıralama"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "takvims_have_yılay_sıralama"
+			        }
+			      ]
+			    },
+			    "takvim_has_ay_yıl": {
+			      "Binding": {
+			        "ConceptualEntity": "Calendar"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "takvim": {
+			          "Target": {
+			            "Entity": "takvim"
+			          }
+			        },
+			        "takvim.ay_yıl": {
+			          "Target": {
+			            "Entity": "takvim.ay_yıl"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "takvim"
+			            },
+			            "Object": {
+			              "Role": "takvim.ay_yıl"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "takvims_have_ay_yıl"
+			        }
+			      ]
+			    },
+			    "takvim_has_ay_kısa": {
+			      "Binding": {
+			        "ConceptualEntity": "Calendar"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "takvim": {
+			          "Target": {
+			            "Entity": "takvim"
+			          }
+			        },
+			        "takvim.ay_kısa": {
+			          "Target": {
+			            "Entity": "takvim.ay_kısa"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "takvim"
+			            },
+			            "Object": {
+			              "Role": "takvim.ay_kısa"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "takvims_have_ay_kısa"
+			        }
+			      ]
+			    },
+			    "takvim_has_ay": {
+			      "Binding": {
+			        "ConceptualEntity": "Calendar"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "takvim": {
+			          "Target": {
+			            "Entity": "takvim"
+			          }
+			        },
+			        "takvim.ay": {
+			          "Target": {
+			            "Entity": "takvim.ay"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "takvim"
+			            },
+			            "Object": {
+			              "Role": "takvim.ay"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "takvims_have_ay"
+			        }
+			      ]
+			    },
+			    "takvim_has_ay_no": {
+			      "Binding": {
+			        "ConceptualEntity": "Calendar"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "takvim": {
+			          "Target": {
+			            "Entity": "takvim"
+			          }
+			        },
+			        "takvim.ay_no": {
+			          "Target": {
+			            "Entity": "takvim.ay_no"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "takvim"
+			            },
+			            "Object": {
+			              "Role": "takvim.ay_no"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "takvims_have_ay_no"
+			        }
+			      ]
+			    },
+			    "takvim_has_yıl": {
+			      "Binding": {
+			        "ConceptualEntity": "Calendar"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "takvim": {
+			          "Target": {
+			            "Entity": "takvim"
+			          }
+			        },
+			        "takvim.yıl": {
+			          "Target": {
+			            "Entity": "takvim.yıl"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "takvim"
+			            },
+			            "Object": {
+			              "Role": "takvim.yıl"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "takvims_have_yıls"
+			        }
+			      ]
+			    },
+			    "takvim_has_date": {
+			      "Binding": {
+			        "ConceptualEntity": "Calendar"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "takvim": {
+			          "Target": {
+			            "Entity": "takvim"
+			          }
+			        },
+			        "takvim.date": {
+			          "Target": {
+			            "Entity": "takvim.date"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "takvim"
+			            },
+			            "Object": {
+			              "Role": "takvim.date"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "takvims_have_dates"
+			        }
+			      ]
+			    },
+			    "rezervasyonlar_has_mea_müşteri_başına_ortalama_harcama": {
+			      "Binding": {
+			        "ConceptualEntity": "Reservations"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "rezervasyonlar": {
+			          "Target": {
+			            "Entity": "rezervasyonlar"
+			          }
+			        },
+			        "mea.müşteri_başına_ortalama_harcama": {
+			          "Target": {
+			            "Entity": "mea.müşteri_başına_ortalama_harcama"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "rezervasyonlar"
+			            },
+			            "Object": {
+			              "Role": "mea.müşteri_başına_ortalama_harcama"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "rezervasyonlars_have_müşteri_başına_ortalama_harcama"
+			        }
+			      ]
+			    },
+			    "rezervasyonlar_has_mea_müşteri_başına_ortalama_gece": {
+			      "Binding": {
+			        "ConceptualEntity": "Reservations"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "rezervasyonlar": {
+			          "Target": {
+			            "Entity": "rezervasyonlar"
+			          }
+			        },
+			        "mea.müşteri_başına_ortalama_gece": {
+			          "Target": {
+			            "Entity": "mea.müşteri_başına_ortalama_gece"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "rezervasyonlar"
+			            },
+			            "Object": {
+			              "Role": "mea.müşteri_başına_ortalama_gece"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "rezervasyonlars_have_müşteri_başına_ortalama_gece"
+			        }
+			      ]
+			    },
+			    "mea_has_column": {
+			      "Binding": {
+			        "ConceptualEntity": "Meas"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "mea": {
+			          "Target": {
+			            "Entity": "mea"
+			          }
+			        },
+			        "mea.column": {
+			          "Target": {
+			            "Entity": "mea.column"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "mea"
+			            },
+			            "Object": {
+			              "Role": "mea.column"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "mea_have_columns"
+			        }
+			      ]
+			    },
+			    "oteller_ülke_hierarchy_şehir_has_oteller_ülke_hierarchy_ilçe": {
+			      "Binding": {
+			        "ConceptualEntity": "Hotels"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "oteller.ülke_hierarchy.şehir": {
+			          "Target": {
+			            "Entity": "oteller.ülke_hierarchy.şehir"
+			          }
+			        },
+			        "oteller.ülke_hierarchy.ilçe": {
+			          "Target": {
+			            "Entity": "oteller.ülke_hierarchy.ilçe"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "oteller.ülke_hierarchy.şehir"
+			            },
+			            "Object": {
+			              "Role": "oteller.ülke_hierarchy.ilçe"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "şehirs_have_ilçes"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "oteller.ülke_hierarchy.ilçe"
+			            },
+			            "Object": {
+			              "Role": "oteller.ülke_hierarchy.şehir"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "ilçes_have_şehirs"
+			        },
+			        {
+			          "Preposition": {
+			            "Subject": {
+			              "Role": "oteller.ülke_hierarchy.ilçe"
+			            },
+			            "Prepositions": [
+			              {
+			                "in": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Object": {
+			              "Role": "oteller.ülke_hierarchy.şehir"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "ilçes_are_in_şehirs"
+			        }
+			      ]
+			    }
+			  },
+			  "Agents": {
+			    "Internal": {
+			      "Version": "1.1.0"
+			    }
+			  }
+			}
+		contentType: json
+

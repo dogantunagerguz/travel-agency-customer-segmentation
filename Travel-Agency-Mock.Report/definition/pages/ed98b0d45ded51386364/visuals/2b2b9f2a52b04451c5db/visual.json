@@ -1,0 +1,67 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "2b2b9f2a52b04451c5db",
+  "position": {
+    "x": 36.499508357915438,
+    "y": 49.08554572271386,
+    "z": 1000,
+    "height": 138.4464110127827,
+    "width": 249.20353982300884,
+    "tabOrder": 1000
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Reservations"
+                        }
+                      },
+                      "Property": "On_Alim_Suresi"
+                    }
+                  },
+                  "Function": 1
+                }
+              },
+              "queryRef": "Sum(Rezervasyonlar.On_Alim_Suresi)",
+              "nativeQueryRef": "Average Lead Time",
+              "displayName": "Average Lead Time"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "Reservations"
+                      }
+                    },
+                    "Property": "On_Alim_Suresi"
+                  }
+                },
+                "Function": 1
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

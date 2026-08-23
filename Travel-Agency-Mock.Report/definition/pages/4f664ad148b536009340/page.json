@@ -1,0 +1,194 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "4f664ad148b536009340",
+  "displayName": "Detailed Insights",
+  "displayOption": "FitToPage",
+  "height": 720,
+  "width": 1280,
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "2701752b5a6c0bd60d6b",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Reservations"
+              }
+            },
+            "Property": "On_Alim_Suresi"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "Drillthrough"
+      },
+      {
+        "name": "126f933bd284e88af8c3",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Reservations"
+              }
+            },
+            "Property": "Family Type"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "Drillthrough"
+      },
+      {
+        "name": "8f4b9d8526b1377f9c83",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Reservations"
+              }
+            },
+            "Property": "Age Group"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "Drillthrough"
+      },
+      {
+        "name": "aa3652e5ac4ed9fd0d8d",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Calendar"
+              }
+            },
+            "Property": "Yıl"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "Drillthrough"
+      },
+      {
+        "name": "2b49cc776c9eacf37872",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Reservations"
+              }
+            },
+            "Property": "Customer Segment"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "Drillthrough"
+      },
+      {
+        "name": "6c4d111d57ab91a7c8e9",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Reservations"
+              }
+            },
+            "Property": "Otel"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "Drillthrough"
+      }
+    ]
+  },
+  "pageBinding": {
+    "name": "28690768a14bb11fdb92",
+    "type": "Drillthrough",
+    "parameters": [
+      {
+        "name": "7731569e3c6a981c1554",
+        "boundFilter": "2701752b5a6c0bd60d6b",
+        "asAggregation": true,
+        "fieldExpr": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Reservations"
+              }
+            },
+            "Property": "On_Alim_Suresi"
+          }
+        }
+      },
+      {
+        "name": "0cf3cb66a475d34577ae",
+        "boundFilter": "126f933bd284e88af8c3",
+        "fieldExpr": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Reservations"
+              }
+            },
+            "Property": "Family Type"
+          }
+        }
+      },
+      {
+        "name": "8c2f61bef154ac57ff69",
+        "boundFilter": "8f4b9d8526b1377f9c83",
+        "fieldExpr": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Reservations"
+              }
+            },
+            "Property": "Age Group"
+          }
+        }
+      },
+      {
+        "name": "812c85eab14819f69d00",
+        "boundFilter": "aa3652e5ac4ed9fd0d8d",
+        "asAggregation": true,
+        "fieldExpr": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Calendar"
+              }
+            },
+            "Property": "Yıl"
+          }
+        }
+      },
+      {
+        "name": "e579184d276f3b8951b4",
+        "boundFilter": "2b49cc776c9eacf37872",
+        "fieldExpr": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Reservations"
+              }
+            },
+            "Property": "Customer Segment"
+          }
+        }
+      },
+      {
+        "name": "57a762886e4c65889dac",
+        "boundFilter": "6c4d111d57ab91a7c8e9",
+        "fieldExpr": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Reservations"
+              }
+            },
+            "Property": "Otel"
+          }
+        }
+      }
+    ]
+  }
+}

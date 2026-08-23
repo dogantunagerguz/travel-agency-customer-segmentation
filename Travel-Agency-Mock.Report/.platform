@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Travel-Agency-Mock"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "8880e70e-5e66-4b77-a0e3-bd6e4da95b72"
+  }
+}

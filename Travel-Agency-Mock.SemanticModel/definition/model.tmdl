@@ -1,0 +1,25 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: tr-TR
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["Ana-Rezervasyonlar","Ets Otelleri","Didim Otelleri","Reservations","Hotels"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table DateTableTemplate_809e95f6-8c19-4eea-937f-fa525b71f3dd
+ref table Meas
+ref table Calendar
+ref table Reservations
+ref table LocalDateTable_adb3b527-71c9-4304-afcd-de087f7a1701
+ref table Guests
+ref table Hotels
+ref table LocalDateTable_3c87e9ae-e953-4a05-957a-cea87c295ff1
+
+ref cultureInfo en-US
+

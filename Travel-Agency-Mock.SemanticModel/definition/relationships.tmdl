@@ -1,0 +1,27 @@
+relationship 5c6ab433-6dfb-4ed2-9096-baa9b07a6d47
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Reservations.Ayrılış
+	toColumn: LocalDateTable_adb3b527-71c9-4304-afcd-de087f7a1701.Date
+
+relationship b2169e60-0bd3-03e1-6ca2-8954fbb6186b
+	fromColumn: Reservations.'Ad Soyad'
+	toColumn: Guests.'Ad Soyad'
+
+relationship 072c6399-f054-1b6f-5dab-e2271964dfa0
+	fromColumn: Reservations.Düz-otel
+	toColumn: Hotels.'Düz-Otel Adı'
+
+relationship 2954c05f-9bb1-45b4-803f-f972c9cc2700
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Calendar.Date
+	toColumn: LocalDateTable_3c87e9ae-e953-4a05-957a-cea87c295ff1.Date
+
+relationship dfd5e897-04e7-df39-2595-c17fbd4df5a9
+	fromColumn: Reservations.'İşlem Tarihi'
+	toColumn: Calendar.Date
+
+relationship 22592d0c-db43-c0a2-27b5-e06de11dfbd7
+	isActive: false
+	fromColumn: Reservations.Geliş
+	toColumn: Calendar.Date
+

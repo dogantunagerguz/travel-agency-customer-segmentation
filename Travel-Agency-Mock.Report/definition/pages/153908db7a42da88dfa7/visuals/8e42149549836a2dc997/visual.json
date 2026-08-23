@@ -1,0 +1,57 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "8e42149549836a2dc997",
+  "position": {
+    "x": 575.75289575289582,
+    "y": 18.532818532818535,
+    "z": 7000,
+    "height": 117.37451737451738,
+    "width": 176.67953667953668,
+    "tabOrder": 7000
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Reservations"
+                    }
+                  },
+                  "Property": "Müşteri Sayısı"
+                }
+              },
+              "queryRef": "Rezervasyonlar.Müşteri Sayısı",
+              "nativeQueryRef": "Number of Customers",
+              "displayName": "Number of Customers"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Reservations"
+                  }
+                },
+                "Property": "Müşteri Sayısı"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

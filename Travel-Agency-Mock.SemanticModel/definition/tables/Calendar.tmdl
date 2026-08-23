@@ -1,0 +1,165 @@
+table Calendar
+	lineageTag: 82a0fe9f-0b87-4280-beb5-76a8376202af
+
+	column Date
+		formatString: General Date
+		lineageTag: 9d368aa1-d573-4919-822e-fdb5c9b19fe7
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Date]
+
+		variation Variation
+			isDefault
+			relationship: 2954c05f-9bb1-45b4-803f-f972c9cc2700
+			defaultHierarchy: LocalDateTable_3c87e9ae-e953-4a05-957a-cea87c295ff1.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column Yıl
+		formatString: 0
+		lineageTag: 58b269a1-d9a1-4302-b1aa-fcb12154f827
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Yıl]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Ay No'
+		formatString: 0
+		lineageTag: cbea6b78-97b4-4bd6-99bb-b85d5fb211ee
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Ay No]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Ay
+		lineageTag: 5755ae6a-6d1f-4209-833a-72e5a1a87951
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Ay]
+		sortByColumn: 'Ay No'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Ay Kısa'
+		lineageTag: 76330fac-8e97-4c71-8182-6d7e68fd2150
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Ay Kısa]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Ay Yıl'
+		lineageTag: e7552b82-7ac4-4682-9c47-27ae8ab02994
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Ay Yıl]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Yıl-Ay (Sıralama)'
+		formatString: 0
+		lineageTag: c771d1db-2be9-401c-8f40-1330e7ad995f
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Yıl-Ay (Sıralama)]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Çeyrek
+		lineageTag: d2c6e989-f18f-4517-904e-1ce3398b359e
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Çeyrek]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Yıl Çeyrek'
+		lineageTag: 8f766f34-0f97-40be-8ea4-13acfaca8c98
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Yıl Çeyrek]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Hafta Günü No'
+		formatString: 0
+		lineageTag: 17b50c7d-d643-4adf-9590-862f6b7a64a8
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Hafta Günü No]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Hafta Günü'
+		lineageTag: 07ed2154-9954-4a4a-9635-d631b0888d62
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Hafta Günü]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Geçmiş/Gelecek
+		lineageTag: 1f508e34-6105-455c-a835-ddab4e50bc9a
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Geçmiş/Gelecek]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Bu Ay mı'
+		lineageTag: 8c4dbed0-1bb1-4349-b7ed-77ad78aa3449
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Bu Ay mı]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Bu Yıl mı'
+		lineageTag: 6b95e532-7aec-4120-a341-6a471d1efc5b
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Bu Yıl mı]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Bugünden Ay Farkı'
+		formatString: 0
+		lineageTag: e02fff2b-e927-40db-9f37-453c128009f5
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Bugünden Ay Farkı]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Calendar = calculated
+		mode: import
+		source =
+				
+				VAR _StartDate = DATE(2010, 1, 1)
+				VAR _EndDate   = DATE(2035, 12, 31)
+				RETURN
+				ADDCOLUMNS(
+				    CALENDAR(_StartDate, _EndDate),
+				    "Yıl",                YEAR([Date]),
+				    "Ay No",              MONTH([Date]),
+				    "Ay",                 FORMAT([Date], "MMMM", "en-US"),
+				    "Ay Kısa",            FORMAT([Date], "MMM", "en-US"),
+				    "Ay Yıl",             FORMAT([Date], "MMM yyyy", "en-US"),
+				    "Yıl-Ay (Sıralama)",  YEAR([Date]) * 100 + MONTH([Date]),
+				    "Çeyrek",             "Q" & FORMAT([Date], "Q"),
+				    "Yıl Çeyrek",         FORMAT([Date], "yyyy") & " Q" & FORMAT([Date], "Q"),
+				    "Hafta Günü No",      WEEKDAY([Date], 2),
+				    "Hafta Günü",         FORMAT([Date], "dddd", "en-US"),
+				    "Geçmiş/Gelecek",     SWITCH(TRUE(),
+				                              [Date] < TODAY(), "Geçmiş",
+				                              [Date] = TODAY(), "Bugün",
+				                              "Gelecek"),
+				    "Bu Ay mı",           IF(YEAR([Date]) = YEAR(TODAY()) && MONTH([Date]) = MONTH(TODAY()), "Evet", "Hayır"),
+				    "Bu Yıl mı",          IF(YEAR([Date]) = YEAR(TODAY()), "Evet", "Hayır"),
+				    "Bugünden Ay Farkı",  DATEDIFF(TODAY(), [Date], MONTH)
+				)
+
+	annotation PBI_Id = bd9ddebafbce43fdb71ad98bce37966f
+

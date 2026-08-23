@@ -1,0 +1,91 @@
+table Hotels
+	lineageTag: 7df8ede5-a1cb-429b-a075-ce3632b5e004
+
+	column 'Otel Adı'
+		dataType: string
+		lineageTag: db66fb16-a3d1-42e0-9198-08a0272db3b8
+		summarizeBy: none
+		sourceColumn: Otel Adı
+
+		annotation SummarizationSetBy = Automatic
+
+	column Ülke
+		dataType: string
+		lineageTag: 9216118d-f3b7-437d-8edf-df7f2734ce62
+		summarizeBy: none
+		sourceColumn: Ülke
+
+		annotation SummarizationSetBy = Automatic
+
+	column Şehir
+		dataType: string
+		lineageTag: a4149391-e0f9-42e9-aa6d-811f610bca7c
+		summarizeBy: none
+		sourceColumn: Şehir
+
+		annotation SummarizationSetBy = Automatic
+
+	column İlçe
+		dataType: string
+		lineageTag: 0c85fb2d-8372-48a9-a161-2b660bfac452
+		summarizeBy: none
+		sourceColumn: İlçe
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Otel Sınıfı'
+		dataType: string
+		lineageTag: c8dbad61-e800-4f78-b398-c61505f92867
+		summarizeBy: none
+		sourceColumn: Otel Sınıfı
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Düz-Otel Adı'
+		dataType: string
+		lineageTag: 4f165af3-5296-48df-bad0-a54e8c1866d1
+		summarizeBy: none
+		sourceColumn: Düz-Otel Adı
+
+		annotation SummarizationSetBy = Automatic
+
+	hierarchy 'Ülke Hierarchy'
+		lineageTag: 0f4b62ff-c43b-441c-ac10-407a1e13209f
+
+		level Ülke
+			lineageTag: 23951f72-d5d8-4bc7-8199-892776ca0af2
+			column: Ülke
+
+		level Şehir
+			lineageTag: d813f409-22a1-42a3-891e-a69c20eafa2a
+			column: Şehir
+
+		level İlçe
+			lineageTag: d86deb9c-d107-4c30-b9bb-a148807c3f70
+			column: İlçe
+
+	partition Hotels = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("C:\Users\dogan\OneDrive\Masaüstü\Power BI Project\Demolar\travel-agency-customer-segmentation\mock\Hotels-Mock.xlsx"), null, true),
+				    Oteller_Sheet = Source{[Item="Oteller",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(Oteller_Sheet, [PromoteAllScalars=true]),
+				    #"Removed Other Columns" = Table.SelectColumns(#"Promoted Headers",{"Otel Adı", "Ülke", "Şehir", "İlçe", "Otel Sınıfı"}),
+				    #"Removed Duplicates" = Table.Distinct(#"Removed Other Columns", {"Otel Adı"}),
+				    #"Trimmed Text" = Table.TransformColumns(#"Removed Duplicates",{{"Otel Adı", Text.Trim, type text}}),
+				    #"Uppercased Text" = Table.TransformColumns(#"Trimmed Text",{{"Otel Adı", Text.Upper, type text}}),
+				    #"Added Custom" = Table.AddColumn(#"Uppercased Text", "Düz-Otel Adı", each // Normalize Turkish characters in hotel names to build a stable join key
+				
+				Text.Replace(Text.Replace(Text.Replace(Text.Replace(Text.Replace(Text.Replace(Text.Replace(Text.Replace(Text.Replace(Text.Replace(Text.Replace(Text.Replace(Text.Replace([Otel Adı], "Ü", "U"), "Ö", "O"), "İ", "I"), "Ğ", "G"), "Ç", "C"), "Ş", "S"), "&", ""), "-", ""), ".", ""), "'", ""), ",", ""), ";", ""), " ", "")),
+				    #"Removed Duplicates1" = Table.Distinct(#"Added Custom", {"Düz-Otel Adı"}),
+				    #"Replaced Value" = Table.ReplaceValue(#"Removed Duplicates1","Lara-Kundu","Kundu",Replacer.ReplaceText,{"İlçe"})
+				in
+				    #"Replaced Value"
+
+	changedProperty = Name
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

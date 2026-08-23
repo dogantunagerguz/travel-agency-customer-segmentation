@@ -1,0 +1,23 @@
+table Guests
+	lineageTag: 422c3773-d93f-421a-ae1e-f2ccb0ed2e6c
+
+	column 'Ad Soyad'
+		lineageTag: 87c596fa-e0cc-4c5f-8760-f834632be7a1
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Reservations[Ad Soyad]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Guests = calculated
+		mode: import
+		source =
+				
+				SUMMARIZE(
+				    Reservations,
+				    Reservations[Ad Soyad]
+				    -- buraya kişi-başı sayımlar/toplamlar eklenebilir
+				)
+
+	annotation PBI_Id = 3bb74995bd514c26b863bd4603c99191
+

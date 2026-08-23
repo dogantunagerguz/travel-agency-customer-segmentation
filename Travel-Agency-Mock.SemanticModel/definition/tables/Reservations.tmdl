@@ -1,0 +1,332 @@
+table Reservations
+	lineageTag: 4df22138-8fdd-46ca-86a9-79624b0ef7ef
+
+	measure 'Sum of Toplam average per Date' =
+			
+			AVERAGE(Reservations[Toplam])
+		lineageTag: a23ae835-45a6-4ad6-8b56-8f6e0da0768f
+
+		extendedProperty MeasureTemplate =
+				{
+				  "version": 0,
+				  "daxTemplateName": "AveragePerCategory"
+				}
+
+		changedProperty = FormatString
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Kişiye Göre Harcama' = CALCULATE(SUM(Reservations[Toplam]))
+		lineageTag: a7c17eb4-f31b-43a5-8d25-710116453b36
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Ziyaret Sayısı' = COUNTROWS(Reservations)
+		formatString: 0
+		lineageTag: 0a89257c-3dd1-45ef-903f-b9d7cf0fe737
+
+	measure 'Müşteri Sayısı' = DISTINCTCOUNT( Reservations[Ad Soyad])
+		formatString: 0
+		lineageTag: 2bdf1e64-15c5-4769-89fe-492bad7b4036
+
+	measure 'Satış Sayısı' = COUNTROWS(Reservations)
+		formatString: 0
+		lineageTag: 06a62123-82b8-4baa-815b-e7a95bd002c1
+
+	column 'Rez.No'
+		dataType: int64
+		formatString: 0
+		lineageTag: df567a54-976c-47d0-a3a4-8cc44406ce31
+		summarizeBy: sum
+		sourceColumn: Rez.No
+
+		annotation SummarizationSetBy = Automatic
+
+	column Kabul
+		dataType: string
+		lineageTag: 872d97ee-59d0-4bbe-9ee1-dca6c4c855d2
+		summarizeBy: none
+		sourceColumn: Kabul
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Ad Soyad'
+		dataType: string
+		lineageTag: 32a81269-24c3-41da-bba4-ae8b6cff1038
+		summarizeBy: none
+		sourceColumn: Ad Soyad
+
+		annotation SummarizationSetBy = Automatic
+
+	column Yaş
+		dataType: int64
+		formatString: 0
+		lineageTag: eebe327e-1393-4ea3-ae2d-691bfc44b7c9
+		summarizeBy: sum
+		sourceColumn: Yaş
+
+		annotation SummarizationSetBy = Automatic
+
+	column Otel
+		dataType: string
+		lineageTag: 40ba956e-c25b-4710-9487-408ee9fb91a8
+		summarizeBy: none
+		sourceColumn: Otel
+
+		annotation SummarizationSetBy = Automatic
+
+	column Geliş
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: bda4138f-cb11-40ce-ad3b-d928ecd26603
+		summarizeBy: none
+		sourceColumn: Geliş
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation __PBI_SemanticLinks = [{"LinkTarget":{"TableName":"Reservations","TableItemName":"Geliş (bins)","ObjectType":4},"LinkType":"UsedInGroup"}]
+
+	column Ayrılış
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 4f97b049-d1fe-4ff0-89bf-29fdd63d9359
+		summarizeBy: none
+		sourceColumn: Ayrılış
+
+		variation Variation
+			isDefault
+			relationship: 5c6ab433-6dfb-4ed2-9096-baa9b07a6d47
+			defaultHierarchy: LocalDateTable_adb3b527-71c9-4304-afcd-de087f7a1701.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Gece
+		dataType: int64
+		formatString: 0
+		lineageTag: 49b19be4-ddf5-4777-8cea-accd313ab1a3
+		summarizeBy: sum
+		sourceColumn: Gece
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'İşlem Tarihi'
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 18161e00-1d6b-4512-abff-f74a1e46114e
+		summarizeBy: none
+		sourceColumn: İşlem Tarihi
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Toplam
+		dataType: double
+		formatString: "₺"#,0.00;-"₺"#,0.00;"₺"#,0.00
+		lineageTag: e1c8bbdc-a485-4d97-8c3a-d66c1d29c393
+		summarizeBy: sum
+		sourceColumn: Toplam
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"tr-TR"}
+
+	column Yetişkin
+		dataType: int64
+		formatString: 0
+		lineageTag: d0ea07e9-f1d7-4338-8da5-5c8f8cac67d1
+		summarizeBy: sum
+		sourceColumn: Yetişkin
+
+		annotation SummarizationSetBy = Automatic
+
+	column Çocuk
+		dataType: int64
+		formatString: 0
+		lineageTag: 8b087808-7ee8-4695-9544-38250935c807
+		summarizeBy: sum
+		sourceColumn: Çocuk
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Segment' = ```
+			
+			VAR CurrentYear = 2026
+			VAR PreviousY = CurrentYear - 1
+			
+			-- ALLEXCEPT drops the row-level filter so the count runs across the whole
+			-- Rezervasyonlar table for this customer name only, not just the current row.
+			VAR CurrentSeasonPurchases = 
+			    CALCULATE(
+			        COUNTROWS(Reservations),
+			        ALLEXCEPT(Reservations, Reservations[Ad Soyad]),
+			        Calendar[Yıl] = CurrentYear
+			    )
+			
+			VAR PreviousSeasonPurchases = 
+			    CALCULATE(
+			        COUNTROWS(Reservations),
+			        ALLEXCEPT(Reservations, Reservations[Ad Soyad]),
+			        Calendar[Yıl] = PreviousY
+			    )
+			
+			VAR OlderPurchases = 
+			    CALCULATE(
+			        COUNTROWS(Reservations),
+			        ALLEXCEPT(Reservations, Reservations[Ad Soyad]),
+			        Calendar[Yıl] < PreviousY
+			    )
+			
+			-- Treat missing counts as 0
+			VAR NetCurrentSeason = COALESCE(CurrentSeasonPurchases, 0)
+			VAR NetPreviousSeason = COALESCE(PreviousSeasonPurchases, 0)
+			VAR NetOlder = COALESCE(OlderPurchases, 0)
+			
+			-- Total past purchases (excluding the current season)
+			VAR TotalPastPurchases = NetPreviousSeason + NetOlder
+			
+			RETURN
+			SWITCH(
+			    TRUE(),
+			    ISBLANK(Reservations[Ad Soyad]), BLANK(),
+			    
+			    -- New: purchased this season, never before
+			    TotalPastPurchases = 0, "New",
+			    
+			    -- Loyal: purchased both this season and last season
+			    NetCurrentSeason > 0 && NetPreviousSeason > 0, "Loyal",
+			    
+			    -- One-time: no purchase this season, exactly 1 in the past overall
+			    NetCurrentSeason = 0 && TotalPastPurchases = 1, "One-time",
+			    
+			    -- Lapsed: no purchase this season, more than one in the past
+			    NetCurrentSeason = 0 && TotalPastPurchases > 1, "Lapsed",
+			    
+			    -- Won back: skipped last season but bought in older years and returned this year
+			    NetCurrentSeason > 0 && NetPreviousSeason = 0 && NetOlder > 0, "Won back",
+			    
+			    "Other")
+			```
+		lineageTag: e1a3954c-339d-42a0-8f9b-2c7c0161bc48
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column On_Alim_Suresi = DATEDIFF(Reservations[İşlem Tarihi], Reservations[Geliş], DAY)
+		formatString: 0
+		lineageTag: f155d45a-366a-44bc-a7ff-20424a43fcee
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Family Type' = ```
+			
+			
+			SWITCH(
+			    TRUE(),
+			    ISBLANK(Reservations[Ad Soyad]), BLANK(),
+			    
+			    -- 1. Couple: exactly two adults, no children
+			    Reservations[Yetişkin] = 2 && Reservations[Çocuk] = 0, "Couple",
+			    -- 2. Family with children: two adults and at least one child
+			    Reservations[Yetişkin] = 2 && Reservations[Çocuk] >= 1, "Family with children",
+			    -- 3. More than two adults
+			    Reservations[Yetişkin] > 2 && Reservations[Çocuk] >= 0, "Other",
+			    -- 4. Single: one person, no children
+			    Reservations[Yetişkin] = 1 && Reservations[Çocuk] = 0, "Single",
+			
+			    "Other")
+			```
+		lineageTag: fab968f2-8764-4137-9851-3234de22c976
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Age Group' =
+			
+			SWITCH(
+			    TRUE(),
+			    Reservations[Yaş] <= 25, "18-25",
+			    Reservations[Yaş] <= 35, "26-35",
+			    Reservations[Yaş] <= 50, "36-50",
+			    "51+"
+			)
+		lineageTag: 4fcf9f9a-cb02-4b3f-86b8-c78941110596
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column Düz-otel
+		dataType: string
+		lineageTag: ac23ab9b-95e5-402a-8242-589326645fbd
+		summarizeBy: none
+		sourceColumn: Düz-otel
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Geliş (bins)' =
+			IF(
+				ISBLANK('Reservations'[Geliş]),
+				BLANK(),
+				DATE(
+					YEAR('Reservations'[Geliş]),
+					1 + (MONTH('Reservations'[Geliş]) - 1),
+					1
+				)
+			)
+		formatString: mmmm yyyy
+		lineageTag: e7560777-6909-49a9-8672-3f8492b7e0d0
+		summarizeBy: none
+
+		extendedProperty GroupingMetadata =
+				{
+				  "version": 0,
+				  "groupedColumns": [
+				    {
+				      "Column": {
+				        "Expression": {
+				          "SourceRef": {
+				            "Entity": "Reservations"
+				          }
+				        },
+				        "Property": "Geliş"
+				      }
+				    }
+				  ],
+				  "binningMetadata": {
+				    "binSize": {
+				      "value": 1.0,
+				      "unit": 6
+				    }
+				  }
+				}
+
+		annotation GroupingDesignState = {"Version":0,"Sources":[{"Name":"r","Entity":"Reservations"}],"GroupedColumns":[{"Column":{"Expression":{"SourceRef":{"Source":"r"}},"Property":"Geliş"}}],"BinItem":{"Expression":{"Floor":{"Expression":{"Column":{"Expression":{"SourceRef":{"Source":"r"}},"Property":"Geliş"}},"Size":1.0,"TimeUnit":2}}}}
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	partition Reservations = m
+		mode: import
+		source =
+				let
+				    Source = #"Ana-Rezervasyonlar",
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"İşlem Tarihi", type date}}),
+				    #"Trimmed Text" = Table.TransformColumns(#"Changed Type",{{"Otel", Text.Trim, type text}}),
+				    #"Uppercased Text" = Table.TransformColumns(#"Trimmed Text",{{"Otel", Text.Upper, type text}}),
+				    #"Added Custom" = Table.AddColumn(#"Uppercased Text", "Düz-otel", each // Normalize Turkish characters in hotel names to build a stable join key
+				Text.Replace(Text.Replace(Text.Replace(Text.Replace(Text.Replace(Text.Replace(Text.Replace(Text.Replace(Text.Replace(Text.Replace(Text.Replace(Text.Replace(Text.Replace([Otel], "Ü", "U"), "Ö", "O"), "İ", "I"), "Ğ", "G"), "Ç", "C"), "Ş", "S"), "&", ""), "-", ""), ".", ""), "'", ""), ",", ""), ";", ""), " ", ""))
+				in
+				    #"Added Custom"
+
+	changedProperty = Name
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Exception
+

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "Travel-Agency-Mock"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "162a653d-1b85-4ab0-8889-93ebe7a9a940"
+  }
+}

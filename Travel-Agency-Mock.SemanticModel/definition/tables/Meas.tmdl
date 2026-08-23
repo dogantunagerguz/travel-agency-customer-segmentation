@@ -1,0 +1,57 @@
+table Meas
+	lineageTag: 72e57560-8743-4044-9d49-d50e486c4c37
+
+	measure 'Müşteri Başına Ortalama Gece' =
+			
+			AVERAGE(Reservations[Gece])
+		formatString: 0
+		lineageTag: 47920c96-c134-4c72-8b80-690022430536
+
+		extendedProperty MeasureTemplate =
+				{
+				  "version": 0,
+				  "daxTemplateName": "AveragePerCategory"
+				}
+
+	measure 'Müşteri Başına Ortalama Harcama' =
+			
+			AVERAGE(Reservations[Toplam])
+		lineageTag: 2c48e11f-897e-4275-bfc0-bbe29adaa2f4
+
+		extendedProperty MeasureTemplate =
+				{
+				  "version": 0,
+				  "daxTemplateName": "AveragePerCategory"
+				}
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Sum of On_Alim_Suresi average per Ad Soyad' =
+			
+			CALCULATE( AVERAGE(Reservations[On_Alim_Suresi]))
+		formatString: 0
+		lineageTag: 274b93e3-fc37-42d3-8eb6-1104f64859d9
+
+		extendedProperty MeasureTemplate =
+				{
+				  "version": 0,
+				  "daxTemplateName": "AveragePerCategory"
+				}
+
+	column Column
+		formatString: 0
+		lineageTag: 1537d34d-66d4-4e54-8e41-fec9d876ec63
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Column]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Meas = calculated
+		mode: import
+		source = Row("Column", BLANK())
+
+	annotation PBI_Id = 596f967478bb4ecab9929a37fcf8a9c3
+
+	annotation 436ba87b-9c83-4389-a31b-ebd06a36be98 = {"Expression":""}
+

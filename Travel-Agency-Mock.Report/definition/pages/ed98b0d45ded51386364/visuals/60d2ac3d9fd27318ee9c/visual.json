@@ -1,0 +1,217 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "60d2ac3d9fd27318ee9c",
+  "position": {
+    "x": 0,
+    "y": 357.44346116027532,
+    "z": 0,
+    "height": 362.47787610619469,
+    "width": 679.64601769911508,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Guests"
+                    }
+                  },
+                  "Property": "Ad Soyad"
+                }
+              },
+              "queryRef": "Misafirler.Ad Soyad",
+              "nativeQueryRef": "Customer",
+              "displayName": "Customer"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Reservations"
+                    }
+                  },
+                  "Property": "Age Group"
+                }
+              },
+              "queryRef": "Rezervasyonlar.Yas_Grubu",
+              "nativeQueryRef": "Yas_Grubu"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Reservations"
+                    }
+                  },
+                  "Property": "Customer Segment"
+                }
+              },
+              "queryRef": "Rezervasyonlar.Musteri_Segmenti",
+              "nativeQueryRef": "Musteri_Segmenti"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Reservations"
+                    }
+                  },
+                  "Property": "Ziyaret Sayısı"
+                }
+              },
+              "queryRef": "Rezervasyonlar.Ziyaret Sayısı",
+              "nativeQueryRef": "Visits",
+              "displayName": "Visits"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Meas"
+                    }
+                  },
+                  "Property": "Sum of On_Alim_Suresi average per Ad Soyad"
+                }
+              },
+              "queryRef": "Meas.Sum of On_Alim_Suresi average per Ad Soyad",
+              "nativeQueryRef": "Avg. Lead Time",
+              "displayName": "Avg. Lead Time"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Reservations"
+                        }
+                      },
+                      "Property": "Toplam"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Rezervasyonlar.Toplam)",
+              "nativeQueryRef": "Amount",
+              "displayName": "Amount"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Reservations"
+                    }
+                  },
+                  "Property": "Family Type"
+                }
+              },
+              "queryRef": "Rezervasyonlar.Aile Durumu",
+              "nativeQueryRef": "Aile Durumu"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "Reservations"
+                      }
+                    },
+                    "Property": "Toplam"
+                  }
+                },
+                "Function": 0
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "total": [
+        {
+          "properties": {
+            "totals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "114.31071480157685D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Rezervasyonlar.Musteri_Segmenti"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "75.08285575505539D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Meas.Sum of On_Alim_Suresi average per Ad Soyad"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "82.26273649914273D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Rezervasyonlar.Yas_Grubu"
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {}
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
