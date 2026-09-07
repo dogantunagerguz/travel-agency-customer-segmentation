@@ -38,10 +38,21 @@ The same analysis, filterable. **Customer segments** breaks the base down by lif
 
 ## How the segmentation is defined
 
-The lifecycle segmentation is a DAX calculated column. It counts each customer's bookings across three windows (this year, last year, everything older) and assigns a state from the combination:
+The lifecycle segmentation is a DAX calculated column with a fixed **2026 reference year** in the published model. Its purchase-year windows are:
+
+| Window | Year filter |
+|---|---|
+| Current season | 2026 |
+| Previous season | 2025 |
+| Older purchases | Before 2025 |
+
+The constant does not advance with the calendar. In this Import model, the column is recalculated during model refresh; selecting another year in a slicer filters the displayed rows without recalculating their segment for that year. This follows Power BI's [calculated-column behaviour](https://learn.microsoft.com/en-us/power-bi/transform-model/desktop-calculations-options#calculated-columns-dax).
+
+For another reference year, change `CurrentYear` in `Reservations[Customer Segment]` in the [published model](../Travel-Agency-Mock.SemanticModel/definition/tables/Reservations.tmdl), then refresh with data covering the intended windows. The `Calendar` table also contains relative-date fields based on `TODAY()`; those fields do not change the segmentation's fixed reference year.
 
 ```dax
 Customer Segment = 
+-- Fixed reference year for the published example.
 VAR CurrentYear = 2026
 VAR PreviousYear = CurrentYear - 1
 

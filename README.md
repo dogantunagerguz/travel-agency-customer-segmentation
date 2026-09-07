@@ -42,17 +42,19 @@ This matters for reading the rest. The loyalty segmentation is what was delivere
 
 ## What I built
 
-**Customer lifecycle segmentation, the actual brief.** A five-state classification, where each state points to a different action:
+**Customer lifecycle segmentation, the actual brief.** A five-state classification using a fixed **2026 reference year** in the published model, where each state points to a different action:
 
-| State | Definition | What it's for |
+| State | Definition in the 2026 model | What it's for |
 |---|---|---|
-| New | No purchases in earlier years | Onboarding |
-| Loyal | Bought this year and last year | Retention |
-| One-time | No purchase this year, exactly one ever | Reactivation |
-| Lapsed | No purchase this year, more than one before | Call list |
-| Won back | Skipped last year, bought earlier and again this year | Learn what worked |
+| New | No purchases before 2026 | Onboarding |
+| Loyal | Bought in both 2026 and 2025 | Retention |
+| One-time | No purchase in 2026, exactly one before 2026 | Reactivation |
+| Lapsed | No purchase in 2026, more than one before 2026 | Call list |
+| Won back | Skipped 2025, bought before 2025 and again in 2026 | Learn what worked |
 
-"This year" means the current calendar year of purchase. The classification is written as a DAX calculated column that counts each customer's bookings across three windows (this year, last year, everything older) and assigns a state from the combination. The choice of calendar year rather than a rolling window is deliberate: in a business where almost everyone travels in summer, a rolling twelve-month window would cut the season in half and split one customer's single summer across two windows.
+In the published DAX column, `CurrentYear = 2026`: "this year" means 2026, "last year" means 2025, and older purchases are before 2025. It counts each customer's bookings across these three purchase-year windows and assigns a state from the combination. The reference year stays fixed when the project is opened or refreshed in a later year.
+
+The choice of calendar-year windows rather than a rolling window reflects the agency's seasonal business. To use another reference year, update the column's year constant and refresh the model with the relevant source data. A year slicer filters the report without changing this classification's reference year. See [the segmentation and refresh notes](docs/dashboard.md#how-the-segmentation-is-defined).
 
 **Transaction date, engineered rather than derived.** The rows had no date, but the filename did. When the sales system exported a period, it wrote the month and year into the file's name. The export itself was built for a person to read, not a machine to process, so before any date could be attached, the file first had to be turned into something structured. Instead of working around the missing column later, I changed how the data was collected and asked the team to export month by month. A Python script, merger.py, took each reading-oriented export, converted it into a processable table, read the month and year out of the filename, and wrote the transaction date into a new column as the first of that month. Lead time became travel date minus transaction date.
 
