@@ -2,7 +2,7 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "8e42149549836a2dc997",
   "position": {
-    "x": 575.75289575289582,
+    "x": 575.7528957528958,
     "y": 18.532818532818535,
     "z": 7000,
     "height": 117.37451737451738,
@@ -27,8 +27,8 @@
                 }
               },
               "queryRef": "Rezervasyonlar.Müşteri Sayısı",
-              "nativeQueryRef": "Number of Customers",
-              "displayName": "Number of Customers"
+              "nativeQueryRef": "Customers",
+              "displayName": "Customers"
             }
           ]
         }

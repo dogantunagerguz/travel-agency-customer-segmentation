@@ -2,6 +2,8 @@
 
 Three report pages, built in Power BI. The data shown is synthetic: names, hotels, and amounts are anonymized, and hotel locations are randomized. The structure, logic, and findings are from the real report, which is in use by the sales team.
 
+**Presentation QA:** The downloadable PBIP uses the concise KPI caption **Customers**, so the card label fits at the 1280 × 720 report size. The screenshot below is an earlier export; the measure itself is unchanged.
+
 ---
 
 ## Flexible Customer Investigation
