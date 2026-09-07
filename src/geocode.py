@@ -26,8 +26,10 @@ Usage:
 import argparse
 import os
 import time
+from pathlib import Path
 
 import requests
+from dotenv import load_dotenv
 from openpyxl import load_workbook
 
 ENDPOINT = "https://eu1.locationiq.com/v1/search"  # EU endpoint
@@ -50,11 +52,14 @@ OUTPUT_COLUMNS = [
 
 
 def get_api_key():
+    # Resolve the project's .env independently of the working directory.
+    # An explicitly exported key takes precedence over the local file.
+    load_dotenv(Path(__file__).resolve().parents[1] / ".env", override=False)
     key = os.environ.get("LOCATIONIQ_API_KEY")
     if not key:
         raise SystemExit(
             "LOCATIONIQ_API_KEY is not set.\n"
-            "Copy .env.example to .env and add your key, or export it:\n"
+            "Copy .env.example to .env in the project root and add your key, or export it:\n"
             "    export LOCATIONIQ_API_KEY=your_key_here"
         )
     return key

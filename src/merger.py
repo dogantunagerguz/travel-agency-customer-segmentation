@@ -21,6 +21,7 @@ With no arguments it scans the current working directory.
 
 import argparse
 import glob
+import math
 import os
 import re
 from datetime import datetime
@@ -92,11 +93,19 @@ def parse_money(value):
 
     Turkish formatting uses '.' for thousands and ',' for decimals, but the
     exports aren't consistent, so the separator role is inferred from
-    position rather than assumed.
+    position rather than assumed. Preserve minus signs and accounting-style
+    parentheses so refunds and negative balances keep their sign.
     """
-    if value is None:
+    if value is None or isinstance(value, bool):
         return None
-    text = re.sub(r"[^\d.,]", "", str(value))
+    if isinstance(value, (int, float)):
+        return round(value, 2) if math.isfinite(value) else None
+
+    raw = str(value).strip().replace("\u2212", "-")
+    accounting_negative = raw.startswith("(") and raw.endswith(")")
+    if accounting_negative:
+        raw = raw[1:-1].strip()
+    text = re.sub(r"[^\d.,+-]", "", raw)
     if not text:
         return None
     if "," in text and "." in text:
@@ -109,7 +118,10 @@ def parse_money(value):
         # a thousands separator.
         text = text.replace(",", ".") if re.search(r",\d{1,2}$", text) else text.replace(",", "")
     try:
-        return round(float(text), 2)
+        amount = float(text)
+        if not math.isfinite(amount):
+            return None
+        return round(-abs(amount) if accounting_negative else amount, 2)
     except ValueError:
         return None
 

@@ -115,6 +115,12 @@ python src/merger.py --input <folder-of-monthly-exports> --output reservations_c
 python src/geocode.py --input hotels.xlsx --output hotels_geocoded.xlsx
 ```
 
-`merger.py` scans the input folder and its subfolders, so the monthly exports can stay in whatever structure they arrive in. The month and year are read from each filename, in either order: `2025 OCAK` and `OCAK 2026` both resolve. Files whose month can't be read are reported at the end rather than silently dated.
+`merger.py` scans the input folder and its subfolders, so the monthly exports can stay in whatever structure they arrive in. The month and year are read from each filename, in either order: `2025 OCAK` and `OCAK 2026` both resolve. Files whose month can't be read are reported at the end rather than silently dated. Negative currency values keep their sign, including numeric cells, `-1.250,50`, and accounting-style `(1.250,50)`.
 
-`geocode.py` is resumable. Rows that already have coordinates are skipped, and progress is written to disk periodically, so hitting the free tier's daily limit costs nothing but a re-run.
+`geocode.py` automatically loads `.env` from the project root, even when launched from another directory. An existing `LOCATIONIQ_API_KEY` environment variable takes precedence. The script is resumable: rows that already have coordinates are skipped, and progress is written to disk periodically, so hitting the free tier's daily limit costs nothing but a re-run.
+
+Run the regression checks from the project root (no API requests or private data required):
+
+```bash
+python -m unittest discover -s tests -v
+```
