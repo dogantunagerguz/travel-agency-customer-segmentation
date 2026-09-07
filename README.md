@@ -1,5 +1,8 @@
 # From "Who Are Our Loyal Customers?" to Hotel Recommendations
 
+
+[Run the public demo](#run-the-public-demo) — synthetic sample data, no private files or API key required.
+
 | | |
 |---|---|
 | **Business impact** | Identifies customer lifecycle segments, reconstructs booking lead time, and supports more focused hotel recommendations. |
@@ -100,7 +103,36 @@ docs/dashboard.md     # the three report pages, with notes and the segmentation 
 
 The dashboard walkthrough, with screenshots of all three report pages, is in [docs/dashboard.md](docs/dashboard.md).
 
-## Running it
+## Run the public demo
+
+The public demo uses **fully synthetic data**, generated locally without private files, credentials, or API requests. Demo figures are illustrative and do not reproduce the business results below.
+
+1. Download this repository (Code → Download ZIP) and extract it, or clone it.
+2. Install Python 3.10+ and a current Power BI Desktop for Windows with PBIP/TMDL support.
+3. Close the project in Power BI Desktop, then run these commands from the repository folder:
+
+```bash
+python -m pip install -r requirements.txt
+python scripts/setup_demo.py
+```
+
+4. Open `Travel-Agency-Mock.pbip` and select **Refresh**.
+
+The script writes the sample workbooks to `demo-data/` and updates the single `DemoDataFolder` Power Query parameter in the local project. If you move the repository, close Power BI Desktop and run the setup command again. To use another sample-data location, run `python scripts/setup_demo.py --data-dir "path/to/demo-data"`. You can also edit `DemoDataFolder` through **Transform data → Manage Parameters**.
+
+Python can generate the files on Windows, macOS, or Linux; opening the report requires [Power BI Desktop](https://learn.microsoft.com/en-us/power-bi/developer/projects/projects-overview). No Power BI Service workspace or cloud refresh setup is required for this local demo. If a map requests an online map service, the remaining report pages can still be reviewed offline.
+
+The sample is anchored to 2026. It contains invented identities and transactions, with matching keys across related tables. Existing screenshots and operational results describe the original project; their totals will differ from this demo.
+
+Run the automated source-data and relocation checks with:
+
+```bash
+python -m unittest discover -s tests -v
+```
+
+## Original-data tooling (optional)
+
+The commands below process your own source exports; the standalone demo above does not require them.
 
 Of 972 hotels, LocationIQ resolved 425 automatically with an address and coordinates. The rest were filled in by hand rather than dropped, which is why the map covers every hotel and not just the ones a geocoder happened to recognize.
 

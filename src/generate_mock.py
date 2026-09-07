@@ -27,18 +27,11 @@ Usage:
 
 import argparse
 import os
+from pathlib import Path
 import random
 import unicodedata
 
 from openpyxl import Workbook, load_workbook
-
-# ---- File paths (edit these) --------------------------------------------
-# Spyder can't pass command-line arguments, so the paths live here.
-# Input files are read, never modified. Masked copies are written to OUT_DIR.
-
-RESERVATIONS_PATH = r"C:\Users\dogan\OneDrive\Masaüstü\Power BI Project\Demolar\travel-agency-customer-segmentation\Travel-Mock.xlsx"
-HOTELS_PATH       = r"C:\Users\dogan\OneDrive\Masaüstü\Power BI Project\Demolar\travel-agency-customer-segmentation\Hotels-Mock.xlsx"
-OUT_DIR           = r"C:\Users\dogan\OneDrive\Masaüstü\Power BI Project\Demolar\travel-agency-customer-segmentation\mock"
 
 # ---- Configuration -------------------------------------------------------
 
@@ -201,6 +194,16 @@ def mask_hotels(headers, data, hotel_map, rng):
 
 
 def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--reservations", type=Path, required=True)
+    parser.add_argument("--hotels", type=Path, required=True)
+    parser.add_argument("--out-dir", type=Path, required=True)
+    args = parser.parse_args()
+    RESERVATIONS_PATH = args.reservations.expanduser().resolve()
+    HOTELS_PATH = args.hotels.expanduser().resolve()
+    OUT_DIR = args.out_dir.expanduser().resolve()
+    if any(OUT_DIR / source.name == source for source in [RESERVATIONS_PATH, HOTELS_PATH]):
+        parser.error("Choose an output directory different from the source directory.")
     rng = random.Random(SEED)
     os.makedirs(OUT_DIR, exist_ok=True)
 

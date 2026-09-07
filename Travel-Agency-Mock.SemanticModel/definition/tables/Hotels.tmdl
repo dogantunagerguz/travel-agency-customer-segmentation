@@ -68,7 +68,7 @@ table Hotels
 		mode: import
 		source =
 				let
-				    Source = Excel.Workbook(File.Contents("C:\Users\dogan\OneDrive\Masaüstü\Power BI Project\Demolar\travel-agency-customer-segmentation\mock\Hotels-Mock.xlsx"), null, true),
+				    Source = Excel.Workbook(File.Contents(DemoDataFolder & "/Hotels-Mock.xlsx"), null, true),
 				    Oteller_Sheet = Source{[Item="Oteller",Kind="Sheet"]}[Data],
 				    #"Promoted Headers" = Table.PromoteHeaders(Oteller_Sheet, [PromoteAllScalars=true]),
 				    #"Removed Other Columns" = Table.SelectColumns(#"Promoted Headers",{"Otel Adı", "Ülke", "Şehir", "İlçe", "Otel Sınıfı"}),

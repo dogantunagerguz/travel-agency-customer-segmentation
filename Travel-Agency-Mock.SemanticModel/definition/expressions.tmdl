@@ -1,6 +1,10 @@
+/// Folder created by scripts/setup_demo.py; configurable in Manage Parameters.
+expression DemoDataFolder = "" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	annotation PBI_ResultType = Text
+
 expression 'Ets Otelleri' =
 		let
-		    Source = Excel.Workbook(File.Contents("C:\Users\dogan\OneDrive\Masaüstü\Power BI Project\Ets\Etstur_Otel_Sinif.xlsx"), null, true),
+		    Source = Excel.Workbook(File.Contents(DemoDataFolder & "/Etstur_Otel_Sinif.xlsx"), null, true),
 		    Oteller_Sheet = Source{[Item="Oteller",Kind="Sheet"]}[Data],
 		    #"Changed Type" = Table.TransformColumnTypes(Oteller_Sheet,{{"Column1", type text}, {"Column2", type text}, {"Column3", type text}, {"Column4", type text}, {"Column5", type text}}),
 		    #"Promoted Headers" = Table.PromoteHeaders(#"Changed Type", [PromoteAllScalars=true]),
@@ -16,7 +20,7 @@ expression 'Ets Otelleri' =
 
 expression 'Didim Otelleri' =
 		let
-		    Source = Excel.Workbook(File.Contents("C:\Users\dogan\OneDrive\Masaüstü\Power BI Project\Ets\Didimtur_Otel_Fiyatlari.xlsx"), null, true),
+		    Source = Excel.Workbook(File.Contents(DemoDataFolder & "/Didimtur_Otel_Fiyatlari.xlsx"), null, true),
 		    Oteller_Sheet = Source{[Item="Oteller",Kind="Sheet"]}[Data],
 		    #"Promoted Headers" = Table.PromoteHeaders(Oteller_Sheet, [PromoteAllScalars=true]),
 		    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Otel Adı", type text}, {"Ülke", type text}, {"Şehir", type text}, {"İlçe", type text}, {"Oda Sınıfı", type text}, {"Otel Sınıfı", type text}, {"Ort. 2 Kişilik Oda Fiyatı (₺)", type number}, {"Ort. 3 Kişilik Oda Fiyatı (₺)", type number}, {"Ort. 4 Kişilik Oda Fiyatı (₺)", type number}, {"Ort. Tek Kişilik Oda Fiyatı (₺)", type number}, {"Acente", type text}}),
@@ -33,7 +37,7 @@ expression 'Didim Otelleri' =
 
 expression Ana-Rezervasyonlar =
 		let
-		    Source = Excel.Workbook(File.Contents("C:\Users\dogan\OneDrive\Masaüstü\Power BI Project\Demolar\travel-agency-customer-segmentation\mock\Travel-Mock.xlsx"), null, true),
+		    Source = Excel.Workbook(File.Contents(DemoDataFolder & "/Travel-Mock.xlsx"), null, true),
 		    Rezervasyonlar_Sheet = Source{[Item="Rezervasyonlar",Kind="Sheet"]}[Data],
 		    #"Promoted Headers" = Table.PromoteHeaders(Rezervasyonlar_Sheet, [PromoteAllScalars=true]),
 		    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"No", Int64.Type}, {"Rez.No", Int64.Type}, {"Kabul", type text}, {"Ad Soyad", type text}, {"Yaş", Int64.Type}, {"Otel", type text}, {"Geliş", Int64.Type}, {"Ayrılış", Int64.Type}, {"Gece", Int64.Type}, {"Toplam", type number}, {"Ödenen", type number}, {"Bakiye", type number}, {"Yetişkin", Int64.Type}, {"Çocuk", Int64.Type}, {"Düşünceler", type text}}),
