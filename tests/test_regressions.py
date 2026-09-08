@@ -23,15 +23,50 @@ class MoneyParsingTests(unittest.TestCase):
     def test_positive_and_zero_values(self):
         cases = [(1250.5, 1250.5), ("1.250,50", 1250.5),
                  ("1,250.50", 1250.5), ("+1.250,50", 1250.5),
-                 ("12,50", 12.5), (0, 0), ("0,00", 0)]
+                 ("12,50", 12.5), ("12.50", 12.5), ("1250.50", 1250.5),
+                 ("0.25", 0.25), ("-12.50", -12.5), (1.25, 1.25),
+                 (0, 0), ("0,00", 0)]
+        for value, expected in cases:
+            with self.subTest(value=value):
+                self.assertEqual(merger.parse_money(value), expected)
+
+    def test_dot_grouped_whole_currency_amounts(self):
+        cases = [("1.250 ₺", 1250), ("12.500 TL", 12500),
+                 ("1.250.000 ₺", 1250000), ("1.250", 1250),
+                 ("+1.250", 1250), ("-1.250 ₺", -1250),
+                 ("−1.250 TL", -1250), ("(1.250 ₺)", -1250),
+                 ("(1.250.000 ₺)", -1250000)]
         for value, expected in cases:
             with self.subTest(value=value):
                 self.assertEqual(merger.parse_money(value), expected)
 
     def test_missing_invalid_and_nonfinite_values(self):
-        for value in (None, "", "n/a", True, "1-2", "--12", float("nan"), float("inf")):
+        for value in (None, "", "n/a", True, "1-2", "--12", "1.25.000", "12..500",
+                      float("nan"), float("inf")):
             with self.subTest(value=value):
                 self.assertIsNone(merger.parse_money(value))
+
+    def test_dot_grouped_amounts_survive_excel_output(self):
+        workbook = Workbook()
+        self.addCleanup(workbook.close)
+        workbook.active.append([
+            1, "000123", "Accepted", "Test Customer [34]", "Test Hotel",
+            "01.09.2026", "03.09.2026", "1.250.000 ₺", "12.500 TL", "1.237.500 TL",
+        ])
+        records = merger.extract_records(workbook.active)
+        with tempfile.TemporaryDirectory() as directory:
+            output = Path(directory) / "whole_lira.xlsx"
+            merger.write_output(records, output)
+            result = load_workbook(output, data_only=True)
+            try:
+                values = dict(zip(merger.COLUMNS, next(result.active.iter_rows(
+                    min_row=2, max_row=2, values_only=True))))
+                self.assertEqual(values["Toplam"], 1250000)
+                self.assertEqual(values["Ödenen"], 12500)
+                self.assertEqual(values["Bakiye"], 1237500)
+                self.assertEqual(values["Rez.No"], "000123")
+            finally:
+                result.close()
 
     def test_negative_amounts_survive_excel_output(self):
         workbook = Workbook()

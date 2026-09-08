@@ -151,6 +151,8 @@ python src/geocode.py --input hotels.xlsx --output hotels_geocoded.xlsx
 
 `merger.py` scans the input folder and its subfolders, so the monthly exports can stay in whatever structure they arrive in. The month and year are read from each filename, in either order: `2025 OCAK` and `OCAK 2026` both resolve. Files whose month can't be read are reported at the end rather than silently dated. Negative currency values keep their sign, including numeric cells, `-1.250,50`, and accounting-style `(1.250,50)`.
 
+Whole-lira text can omit the decimal comma. When a text value contains only dots, complete groups of three digits are treated as thousands: `1.250 ₺` becomes `1250`, and `1.250.000 ₺` becomes `1250000`. Dot decimals such as `12.50` and numeric Excel cells keep their scale.
+
 `geocode.py` automatically loads `.env` from the project root, even when launched from another directory. An existing `LOCATIONIQ_API_KEY` environment variable takes precedence. The script is resumable: rows that already have coordinates are skipped, and progress is written to disk periodically, so hitting the free tier's daily limit costs nothing but a re-run.
 
 Run the regression checks from the project root (no API requests or private data required):
