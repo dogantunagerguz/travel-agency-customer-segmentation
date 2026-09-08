@@ -107,8 +107,7 @@ The dashboard walkthrough, with screenshots of all three report pages, is in [do
 
 ## SQL evidence
 
-The [self-contained SQLite companion](sql/README.md) demonstrates the fixed 2026 lifecycle segmentation, customer value, monthly KPIs, hotel recommendation signals, and data-quality checks on invented records. Run `python sql/run_demo.py`; the repository's unit-test command also verifies it. This is equivalent analytical logic for portfolio review, not a claim that SQL was part of the original operational workflow.
-
+The [source-linked SQL companion](sql/README.md) generates the same fully synthetic Excel workbooks used by the downloadable Power BI project, then loads **48 reservations, 30 customers, and 6 hotels** through raw, staging, fact, and KPI layers. It includes Turkish hotel-key normalization, lifecycle segmentation, value and lead-time analysis, row-grain reconciliation, and auditable quality checks. [Executed results](sql/RESULTS.md) and a [data dictionary](sql/DATA_DICTIONARY.md) are committed for direct review. These are demo outputs, not operational totals.
 ## Run the public demo
 
 The public demo uses **fully synthetic data**, generated locally without private files, credentials, or API requests. Demo figures are illustrative and do not reproduce the business results below.

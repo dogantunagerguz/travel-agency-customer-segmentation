@@ -21,29 +21,20 @@ class SqlPortfolioDemoTests(unittest.TestCase):
             GROUP BY lifecycle_segment
         """).fetchall()
         self.assertEqual(dict(rows), {
-            "New": 1,
-            "Loyal": 2,
-            "One-time": 1,
-            "Lapsed": 1,
-            "Won back": 1,
+            "New": 6,
+            "Loyal": 6,
+            "One-time": 6,
+            "Lapsed": 6,
+            "Won back": 6,
         })
 
-    def test_refund_does_not_change_lifecycle_or_customer_value(self):
+    def test_pipeline_preserves_source_grain(self):
         row = self.connection.execute("""
-            SELECT l.lifecycle_segment, v.booking_frequency, v.lifetime_value
-            FROM customer_lifecycle_2026 AS l
-            JOIN customer_value_2026 AS v USING (customer_id)
-            WHERE l.customer_id = 1
+            SELECT raw_reservations, staged_reservations, accepted_reservations,
+                   matched_fact_rows, customers, hotels
+            FROM pipeline_reconciliation
         """).fetchone()
-        self.assertEqual(tuple(row), ("New", 1, 5000))
-
-    def test_2026_total_is_reconciled(self):
-        row = self.connection.execute("""
-            SELECT SUM(bookings), SUM(booked_revenue)
-            FROM monthly_booking_kpis
-            WHERE booking_month LIKE '2026-%'
-        """).fetchone()
-        self.assertEqual(tuple(row), (4, 21300))
+        self.assertEqual(tuple(row), (48, 48, 48, 48, 30, 6))
 
     def test_all_quality_checks_pass(self):
         failures = self.connection.execute("""
@@ -51,7 +42,11 @@ class SqlPortfolioDemoTests(unittest.TestCase):
         """).fetchall()
         self.assertEqual(failures, [])
 
+    def test_committed_results_snapshot_is_current(self):
+        expected = run_demo.render_results(self.connection)
+        actual = (ROOT / "sql/RESULTS.md").read_text(encoding="utf-8")
+        self.assertEqual(actual, expected)
+
 
 if __name__ == "__main__":
     unittest.main()
-
