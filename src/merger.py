@@ -95,6 +95,9 @@ def parse_money(value):
     exports aren't consistent, so the separator role is inferred from
     position rather than assumed. Preserve minus signs and accounting-style
     parentheses so refunds and negative balances keep their sign.
+    Dot-only text grouped in threes follows the Turkish thousands convention
+    ("1.250" means 1250). Numeric cells and dot decimals such as "12.50" retain
+    their scale.
     """
     if value is None or isinstance(value, bool):
         return None
@@ -117,6 +120,10 @@ def parse_money(value):
         # A comma followed by one or two digits is a decimal; otherwise it's
         # a thousands separator.
         text = text.replace(",", ".") if re.search(r",\d{1,2}$", text) else text.replace(",", "")
+    elif re.fullmatch(r"[+-]?\d{1,3}(?:\.\d{3})+", text):
+        # Whole-lira exports can omit the decimal comma: 1.250 or 1.250.000.
+        # Match complete groups so ordinary dot decimals keep their scale.
+        text = text.replace(".", "")
     try:
         amount = float(text)
         if not math.isfinite(amount):
