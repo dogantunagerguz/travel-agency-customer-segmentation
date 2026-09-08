@@ -105,6 +105,10 @@ docs/dashboard.md     # the three report pages, with notes and the segmentation 
 
 The dashboard walkthrough, with screenshots of all three report pages, is in [docs/dashboard.md](docs/dashboard.md).
 
+## SQL evidence
+
+The [self-contained SQLite companion](sql/README.md) demonstrates the fixed 2026 lifecycle segmentation, customer value, monthly KPIs, hotel recommendation signals, and data-quality checks on invented records. Run `python sql/run_demo.py`; the repository's unit-test command also verifies it. This is equivalent analytical logic for portfolio review, not a claim that SQL was part of the original operational workflow.
+
 ## Run the public demo
 
 The public demo uses **fully synthetic data**, generated locally without private files, credentials, or API requests. Demo figures are illustrative and do not reproduce the business results below.
