@@ -2,7 +2,7 @@
 
 ![Dashboard](assets/dashboard.png)
 
-*Detailed Insights — anonymized dashboard preview. [View all dashboard pages](docs/dashboard.md).*
+*Insights — booking lead time, customer lifecycle filters, and seasonal sales. [View all dashboard pages](docs/dashboard.md).*
 
 [Run the public demo](#run-the-public-demo) — synthetic sample data, no private files or API key required.
 
