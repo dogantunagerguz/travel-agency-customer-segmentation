@@ -1,5 +1,8 @@
 # From "Who Are Our Loyal Customers?" to Hotel Recommendations
 
+![Power BI dashboard showing customer segments, booking seasonality, and hotel locations](assets/dashboard-preview.png)
+
+*Detailed Insights — anonymized dashboard preview. [View all dashboard pages](docs/dashboard.md).*
 
 [Run the public demo](#run-the-public-demo) — synthetic sample data, no private files or API key required.
 
