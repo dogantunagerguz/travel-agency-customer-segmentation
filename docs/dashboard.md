@@ -2,8 +2,6 @@
 
 Three report pages, built in Power BI. The data shown is synthetic: names, hotels, and amounts are anonymized, and hotel locations are randomized. The structure, logic, and findings are from the real report, which is in use by the sales team.
 
-**Presentation QA:** The downloadable PBIP uses the concise KPI caption **Customers**, so the card label fits at the 1280 × 720 report size. The screenshot below is an earlier export; the measure itself is unchanged.
-
 ---
 
 ## Flexible Customer Investigation
@@ -18,9 +16,18 @@ This is the difference between a report someone glances at and a tool someone us
 
 ## Insights
 
-![Insights](Insights.png)
-
 The overview page.
+
+**Current model:** The customer KPI is labelled **Customers**, so its caption fits at the 1280 × 720 report size. The measure is unchanged. [View the current visual definition](../Travel-Agency-Mock.Report/definition/pages/153908db7a42da88dfa7/visuals/8e42149549836a2dc997/visual.json).
+
+<details>
+<summary>View earlier Power BI export</summary>
+
+![Insights — earlier Power BI export](Insights.png)
+
+This image predates the shorter **Customers** caption. It is retained as an earlier report preview; a fresh export of the current model is pending.
+
+</details>
 
 **Average booking lead time by month** traces a U: January purchases sit far ahead of travel, the gap closes to about a month by high summer, then widens again toward year end. Much of that shape is mechanical, since almost everyone travels in summer, so a January booking is simply forced to sit far ahead of its trip. The part worth reading is at the edges, where late-year bookings for the next summer appear.
 
