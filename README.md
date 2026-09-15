@@ -2,6 +2,8 @@
 
 ![Dashboard](assets/dashboard.png)
 
+*Earlier Power BI export. The current model uses the shorter **Customers** KPI caption; [see the current model notes](docs/dashboard.md#insights).*
+
 **What it does:** Segments customers by lifecycle, reconstructs booking lead time, and geocodes hotels to support recommendations across two travel-agency branches.  
 **Tools:** Power BI · DAX · Power Query · Python · LocationIQ · SQLite (public SQL companion)  
 **Status:** In operational use; manually refreshed; source data remains private.
