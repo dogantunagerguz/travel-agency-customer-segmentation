@@ -1,14 +1,19 @@
 # Travel Agency Customer Segmentation
 
+**Business question:** Who are our loyal customers, when do they book, and which hotels are relevant to the next sales conversation?
+
 ![Dashboard](assets/dashboard.png)
 
 *Earlier Power BI export. The current model uses the shorter **Customers** KPI caption; [see the current model notes](docs/dashboard.md#insights).*
 
-**What it does:** Segments customers by lifecycle, reconstructs booking lead time, and geocodes hotels to support recommendations across two travel-agency branches.  
+I started with the team's difficulty identifying loyal customers. I changed the export routine to recover booking-month information, resolved hotel-name and join-grain problems, and added lifecycle, lead-time and location views. Staff can use past booking patterns to narrow hotel suggestions across two travel-agency branches.
+
+**Operational use:** Prepare the monthly exports, refresh the report manually, and review the customer profile and hotel history before a sales conversation.
+
 **Tools:** Power BI · DAX · Power Query · Python · LocationIQ · SQLite (public SQL companion)  
 **Status:** In operational use; manually refreshed; source data remains private.
 
-[▶ Run the public demo](#run-the-public-demo) · [SQL companion](sql/) · [Full story](docs/story.md)
+[Decision workflow and evidence](docs/decision-workflow.md) · [▶ Run the public demo](#run-the-public-demo) · [SQL companion](sql/) · [Full story](docs/story.md)
 
 ## Run the public demo
 
