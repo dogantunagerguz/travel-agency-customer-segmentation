@@ -101,6 +101,12 @@ The idea I keep coming back to is closer to how a video feed decides what to sho
 - **Transaction date resolves to month, not day.** Lead-time distributions are right in shape but coarse at the tail.
 - **The data isn't published here.** The sales data belongs to the tour operator. This repository holds the code and the reasoning, not the dataset.
 
+## Operational delivery notes
+
+This project formed part of a wider BI engagement covering driver training, psychotechnical assessment and travel services. The [shared author-reported engagement notes](https://github.com/dogantunagerguz/driving-school-targeting-and-finance/blob/main/docs/story.md#operational-delivery-notes) record the overall **7-to-2-hour weekly reporting reduction**, requirements gathering with **four department managers**, and report publishing across **three business lines**.
+
+Those figures describe the wider engagement, not the effect or stakeholder count of this project alone. Their scope and evidence limitations are documented in the linked notes.
+
 ## What's in this repo
 
 ```
