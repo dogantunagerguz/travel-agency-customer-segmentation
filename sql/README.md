@@ -6,6 +6,8 @@ This companion loads the **same fully synthetic Excel workbooks used by the publ
 
 [Review the SQL data dictionary](DATA_DICTIONARY.md)
 
+[QA control register, test coverage and verification record](../docs/qa.md)
+
 ## What this demonstrates
 
 - source-to-mart lineage: Excel → `raw_*` → `stg_*` → `fct_*` / KPI views

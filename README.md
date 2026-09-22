@@ -10,10 +10,10 @@ I started with the team's difficulty identifying loyal customers. I changed the 
 
 **Operational use:** Prepare the monthly exports, refresh the report manually, and review the customer profile and hotel history before a sales conversation.
 
-**Tools:** Power BI · DAX · Power Query · Python · LocationIQ · SQLite (public SQL companion)  
+**Tools:** Power BI · DAX · Power Query · SQL / SQLite (public companion) · Python · LocationIQ<br>
 **Status:** In operational use; manually refreshed; source data remains private.
 
-[Decision workflow and evidence](docs/decision-workflow.md) · [▶ Run the public demo](#run-the-public-demo) · [SQL companion](sql/) · [Full story](docs/story.md)
+[Decision workflow and evidence](docs/decision-workflow.md) · [▶ Run the public demo](#run-the-public-demo) · [SQL companion](sql/) · [QA & validation](#qa--validation) · [Full story](docs/story.md)
 
 ## Run the public demo
 
@@ -48,10 +48,26 @@ python sql/run_demo.py
 
 [Executed SQL results](sql/RESULTS.md) · [SQL data dictionary](sql/DATA_DICTIONARY.md)
 
-Run the automated source-data, SQL, and relocation checks with:
+## QA & Validation
+
+[![Python and SQL tests](https://github.com/dogantunagerguz/travel-agency-customer-segmentation/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/dogantunagerguz/travel-agency-customer-segmentation/actions/workflows/ci.yml)
+
+**9 SQL data-quality controls · 21 automated tests.** The synthetic fixture reconciles **48 reservations → 48 fact rows**, with **30 customers and 6 hotels**. All nine controls report zero issues; the test suite also checks that the committed SQL results match a fresh run.
+
+| Test group | Tests | Coverage |
+|---|---:|---|
+| Demo sources and portability | 6 | Workbook/sheet/column references, related keys, relocation, repeatable sample values and preservation of existing files |
+| SQL | 4 | Lifecycle distribution, source-to-fact counts, the nine quality controls and result-snapshot consistency |
+| Money parsing and API-key configuration | 11 | Signed and locale-formatted amounts, Excel output and local configuration using test-only keys |
+
+After installing the dependencies, run the same suite as GitHub CI:
 
 ```bash
-python -m unittest discover -s tests -v
+python -m unittest discover -s tests -p "test_*.py" -v
 ```
+
+[QA record, control definitions and coverage limits](docs/qa.md) · [Executed SQL results](sql/RESULTS.md) · [Test source](tests/)
+
+These checks cover the public synthetic demo and Python/SQL code. They do not execute Power BI Desktop or its DAX engine, call the live geocoding API, or establish user acceptance or operational outcomes. Individual bad-data regression cases for all nine SQL controls remain to be added.
 
 For the business context, design decisions, operational limitations, and original-data tooling, read the [full project story](docs/story.md).
