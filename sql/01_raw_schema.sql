@@ -12,8 +12,9 @@ CREATE TABLE raw_hotels (
 );
 
 CREATE TABLE raw_reservations (
+    source_row_id    INTEGER PRIMARY KEY,
     source_row_no    INTEGER,
-    reservation_no  INTEGER,
+    reservation_no  TEXT,
     acceptance_status TEXT,
     customer_name    TEXT,
     customer_age     INTEGER,

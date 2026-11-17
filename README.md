@@ -38,7 +38,7 @@ The sample uses a fixed **2026 reference year**, invented identities, and matchi
 
 ## SQL evidence
 
-The [SQL companion README](sql/README.md) explains the runnable Excel → raw → staging → fact/KPI pipeline, including lifecycle segmentation, hotel-key normalization, window functions, and data-quality checks. It uses **48 synthetic reservations, 30 customers, and 6 hotels**; SQL is a public portfolio companion, not a claim about the original production workflow.
+The SQLite companion uses **48 synthetic reservations, 30 customers and 6 hotels**. Python loads the two Excel sources. SQL checks dates, amounts and hotel matches, keeps a reason for each rejected reservation, and checks that every valid source reservation reaches the KPI data once. The resulting queries show repeat bookings, average booked value by segment and change from the previous calendar month. [SQL walkthrough](sql/README.md)
 
 After installing the dependencies above, run it from the repository root:
 
@@ -52,12 +52,12 @@ python sql/run_demo.py
 
 [![Python and SQL tests](https://github.com/dogantunagerguz/travel-agency-customer-segmentation/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/dogantunagerguz/travel-agency-customer-segmentation/actions/workflows/ci.yml)
 
-**9 SQL data-quality controls · 21 automated tests.** The synthetic fixture reconciles **48 reservations → 48 fact rows**, with **30 customers and 6 hotels**. All nine controls report zero issues; the test suite also checks that the committed SQL results match a fresh run.
+**12 SQL controls and 37 automated tests.** All 48 clean reservations reach the output exactly once. A separate test removes one output row and duplicates another. The total stays at 48 and the reservation audit flags both rows. [Validation evidence](docs/qa.md#example-of-a-missing-row-and-a-duplicate)
 
 | Test group | Tests | Coverage |
 |---|---:|---|
 | Demo sources and portability | 6 | Workbook/sheet/column references, related keys, relocation, repeatable sample values and preservation of existing files |
-| SQL | 4 | Lifecycle distribution, source-to-fact counts, the nine quality controls and result-snapshot consistency |
+| SQL | 20 | Invalid input, reservation audit, repeat loads and rollback, customer and month KPIs, and result-snapshot consistency |
 | Money parsing and API-key configuration | 11 | Signed and locale-formatted amounts, Excel output and local configuration using test-only keys |
 
 After installing the dependencies, run the same suite as GitHub CI:
@@ -68,6 +68,6 @@ python -m unittest discover -s tests -p "test_*.py" -v
 
 [QA record, control definitions and coverage limits](docs/qa.md) · [Executed SQL results](sql/RESULTS.md) · [Test source](tests/)
 
-These checks cover the public synthetic demo and Python/SQL code. They do not execute Power BI Desktop or its DAX engine, call the live geocoding API, or establish user acceptance or operational outcomes. Individual bad-data regression cases for all nine SQL controls remain to be added.
+The tests exercise the Python/SQLite demo and verify the Power BI project's source references and demo setup.
 
 For the business context, design decisions, operational limitations, and original-data tooling, read the [full project story](docs/story.md).
