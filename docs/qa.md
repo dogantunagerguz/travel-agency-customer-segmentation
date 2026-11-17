@@ -1,79 +1,61 @@
-[← Project overview](../README.md#qa--validation) · [SQL results](../sql/RESULTS.md) · [Automated runs](https://github.com/dogantunagerguz/travel-agency-customer-segmentation/actions/workflows/ci.yml)
+[Project overview](../README.md#qa--validation) · [SQL results](../sql/RESULTS.md) · [Automated runs](https://github.com/dogantunagerguz/travel-agency-customer-segmentation/actions/workflows/ci.yml)
 
 # QA and validation evidence
 
-The public demo has **9 SQL data-quality controls and 21 automated test methods**. This document connects the risks, implemented controls, expected results and available execution evidence. The nine SQL controls are exercised together by one of the SQL tests; they are not nine additional test methods.
+The synthetic demo has 12 SQL controls. Its clean run produces 48 reporting rows from 48 reservations, with 30 customers and 6 hotels. The automated suite compares a fresh run with the committed output and checks how the pipeline handles deliberately flawed records. [Clean output](../sql/RESULTS.md)
 
-## Verification record
+## Example of a missing row and a duplicate
 
-| Item | Recorded evidence |
+The test removes source row 1 from the reporting output and adds a second copy of row 2. The output still contains 48 rows. The audit reports two inconsistencies.
+
+| Source row | Expected reporting rows | Observed reporting rows |
+|---:|---:|---:|
+| 1 | 1 | 0 |
+| 2 | 1 | 2 |
+
+The audit starts from individual raw rows. It compares the expected outcome with the number and reservation number of the actual reporting rows. It also flags reporting rows with no source key. Accepted rows with bad data remain traceable in the rejection view. [Audit SQL](../sql/04_quality_checks.sql) · [Test cases](../tests/test_sql_demo.py)
+
+## SQL controls
+
+| Control | What it counts |
 |---|---|
-| Local verification date | 22 September 2026 |
-| Code and fixture baseline | [`fddd8b9`](https://github.com/dogantunagerguz/travel-agency-customer-segmentation/commit/fddd8b9a668f5d7c4cb62defddce430329be6cf6) |
-| Local environment | Python 3.12, with the repository's `requirements.txt` installed |
-| Automated suite result | `Ran 21 tests` / `OK` |
-| SQL control result | All 9 controls returned `issue_count = 0` on the generated fixture |
-| Reconciliation | 48 raw, 48 staged, 48 accepted and 48 matched fact rows; 30 customers; 6 hotels |
-| Lifecycle fixture | 6 customers in each of New, Loyal, One-time, Lapsed and Won back |
-| Committed results | `test_committed_results_snapshot_is_current` passed: fresh output matches `sql/RESULTS.md` |
-| CI evidence for this baseline | [Successful run, 18 September 2026](https://github.com/dogantunagerguz/travel-agency-customer-segmentation/actions/runs/35292175335) |
+| `missing_reservation_number` | Accepted rows without a reservation number |
+| `duplicate_reservation_number` | Reservation numbers repeated among accepted rows. All rows with that number are rejected. |
+| `missing_customer_or_hotel_key` | Accepted rows with an empty customer or hotel key |
+| `accepted_hotel_not_matched` | Accepted rows whose hotel key has no match |
+| `normalized_hotel_key_collision` | Hotel keys shared by multiple dimension rows. Affected reservations are rejected with `ambiguous_hotel_match`. |
+| `invalid_date` | Accepted rows with a missing or invalid booking, arrival or departure date |
+| `booking_after_arrival` | Accepted rows where the booking date is after arrival |
+| `stay_length_not_reconciled` | Accepted rows with invalid nights or a difference between recorded nights and the date span |
+| `invalid_amount` | Accepted rows with missing, nonnumeric or nonfinite total, paid or balance amounts |
+| `balance_not_reconciled` | Accepted rows where total minus paid and recorded balance differ by more than one cent after rounding |
+| `reservation_lineage_mismatch` | Source rows with missing, repeated or mismatched output, plus output keys with no source row |
+| `customer_not_classified` | Customers outside the fixed lifecycle rules, for example when their only booking falls after 2026 |
 
-This is a dated verification record. The [workflow history](https://github.com/dogantunagerguz/travel-agency-customer-segmentation/actions/workflows/ci.yml) and README badge show subsequent runs. All fixture identities and amounts are synthetic; these counts are not business results.
-
-## SQL control register
-
-The implementation is in [`sql/04_quality_checks.sql`](../sql/04_quality_checks.sql); recorded counts are in [`sql/RESULTS.md`](../sql/RESULTS.md#data-quality-checks). Every control is expected to return **0** for the clean fixture.
-
-| Control | Risk addressed | What a nonzero count means |
-|---|---|---|
-| `normalized_hotel_key_collision` | A normalised hotel key joins to multiple dimension rows | Number of hotel-key groups containing more than one row |
-| `duplicate_reservation_number` | A reservation is repeated | Number of reservation-number groups containing more than one row |
-| `missing_customer_or_hotel_key` | A source row cannot support customer or hotel analysis | Reservation rows with a null or blank customer/hotel key |
-| `accepted_hotel_not_matched` | An accepted reservation loses its hotel match | Accepted reservation rows without a matching staged hotel |
-| `accepted_row_lost_or_multiplied` | The join changes the number of accepted rows | Absolute difference between accepted source-row and fact-row counts |
-| `booking_after_arrival` | Booking timing contradicts arrival timing | Fact rows whose booking date is later than arrival |
-| `stay_length_not_reconciled` | Recorded nights disagree with the date span | Fact rows whose departure-minus-arrival days differ from nights |
-| `balance_not_reconciled` | Total, payment and balance disagree | Fact rows where the absolute difference between total minus paid and balance exceeds 0.01 |
-| `customer_not_classified` | Lifecycle logic leaves a customer outside the defined groups | Customer rows classified as `Unclassified` |
-
-Counts have different units and can overlap. Adding them does not give the number of unique bad customers or reservations. The row-count reconciliation is an aggregate check, not a reservation-by-reservation lineage comparison.
+The counts can overlap because one source row can fail several checks. For example, an accepted row with an invalid date and a missing payment produces two rejection reasons and stays out of the KPI data. The runner exits with an error when any control reports an issue. [Rejection rules](../sql/02_staging.sql) · [Control counts](../sql/04_quality_checks.sql)
 
 ## Automated test coverage
 
-| Source | Methods | Assertions covered |
+| Tests | Methods | Coverage |
 |---|---:|---|
-| [`tests/test_demo.py`](../tests/test_demo.py) | 6 | Required model workbooks, sheets and source columns exist; related keys match; the data-folder parameter follows a relocated repository with spaces and Turkish characters; DAX field-parameter references point to existing columns; repeat setup produces identical sample values; an existing non-demo workbook is preserved |
-| [`tests/test_sql_demo.py`](../tests/test_sql_demo.py) | 4 | Expected five-segment distribution; raw/staging/fact reconciliation; zero issues across the nine SQL controls; exact agreement between regenerated and committed results |
-| [`tests/test_regressions.py`](../tests/test_regressions.py), `MoneyParsingTests` | 6 | Negative, positive, zero, grouped and decimal currency values; rejection of missing/invalid/nonfinite inputs; preservation of signed amounts and reservation text identifiers in Excel output |
-| [`tests/test_regressions.py`](../tests/test_regressions.py), `ApiKeyTests` | 5 | Project-local configuration from another working directory; environment-key precedence; operation without a local configuration file; clear errors for missing or empty keys |
+| [Public demo](../tests/test_demo.py) | 6 | Workbook references, keys, relocation, repeatable sample values and preservation of existing files |
+| [SQL demo](../tests/test_sql_demo.py) | 20 | Clean results, invalid fields, missing and duplicate matches, reservation audit, reloading and rollback, and KPI definitions |
+| [Python regression tests](../tests/test_regressions.py) | 11 | Signed and locale-formatted amounts, Excel output and local key configuration with placeholders |
 
-Several methods use multiple subcases; **21 counts methods**, not every input variation. API-key tests use temporary files and placeholder keys. They do not make API requests. Excel identifier preservation is tested for the Python merger output; it is not a claim that the SQL staging layer preserves identifier formatting.
+The reload tests repeat the same input, replace a changed amount and simulate both a bad header and a database failure during insertion. The database failure test verifies that both input tables return to their previous state.
 
 ## Reproduce the checks
 
-From the repository root:
+From the repository root, install its requirements and run the tests and demo.
 
 ```bash
 python -m pip install -r requirements.txt
-python -m unittest discover -s tests -p "test_*.py" -v
+python -m unittest discover -s tests -p 'test_*.py' -v
 python sql/run_demo.py
 ```
 
-Expected results are `Ran 21 tests` / `OK`, followed by SQL output ending in `PASS: all SQL data-quality checks returned zero issues.` The SQL runner generates workbooks in a temporary folder and uses an in-memory SQLite database.
+The suite reports `Ran 37 tests` with `OK`. The demo ends with `PASS: all SQL data-quality checks returned zero issues.` GitHub Actions runs the same test suite on Python 3.12. [CI workflow](../.github/workflows/ci.yml)
 
-The [CI workflow](../.github/workflows/ci.yml) installs the dependencies and runs the complete suite on Ubuntu with Python 3.12 for pushes to `main`, pull requests and manual dispatches. A failing test fails the job.
+## Scope
 
-## Coverage limits and remaining work
-
-- **SQL bad-data scenarios:** all nine controls are currently checked against the clean fixture. Separate regressions that inject each relevant fault and assert its detection are not yet implemented. Invalid currency inputs are covered separately in the Python money-parsing tests.
-- **Date and amount completeness:** the SQL comparisons operate on staged values. They do not comprehensively validate missing or unparseable dates and amounts; null values can escape comparison-based checks.
-- **Power BI execution:** source-reference checks do not execute Power Query or DAX. A successful Desktop refresh, measure-by-measure comparison and visual/filter review have no signed QA record in this repository.
-- **Geocoding:** key configuration is tested. Live match accuracy, HTTP retry behaviour and coordinate validity are outside this suite.
-- **Operational acceptance:** the tests do not validate private company data, user sign-off, recommendation usage, conversion or revenue impact. Operational reports refresh manually.
-- **Model assumptions:** customer identity is name-based and lifecycle windows are fixed to 2026. These limits remain even when the synthetic tests pass; see the [decision workflow](decision-workflow.md#sources-units-of-analysis-and-constraints).
-
-Future manual verification should record the date, reviewer, model/version, sample and filter context, expected versus observed result, and any unresolved issue. The first entries should cover Desktop refresh, KPI agreement, lifecycle filters, customer drill-down and hotel/map behaviour. These are proposed checks, not completed acceptance evidence.
-
-## Maintaining this record
-
-When code or fixtures change, rerun the suite and update the baseline, counts and coverage notes. If an intended calculation change affects the snapshot, review the new output before running `python sql/run_demo.py --write-results`, then rerun the suite. Do not treat a regenerated snapshot alone as proof that the business definition is correct.
+The SQL demo uses a fresh in-memory database and synthetic workbook contents. One source row ID identifies a row within one load. The model uses name-based customer keys and fixed 2026 lifecycle windows. It expects whole-day Excel serials for travel dates and ISO dates for bookings. The tests exercise the Python and SQLite code and check workbook references in the Power BI project. [SQL data dictionary](../sql/DATA_DICTIONARY.md) · [Decision workflow](decision-workflow.md)

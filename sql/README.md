@@ -1,6 +1,6 @@
 # SQL portfolio companion
 
-This companion loads the **same fully synthetic Excel workbooks used by the public Power BI project**, lands them in raw SQLite tables, standardizes them in staging views, and builds decision-facing marts. It does **not** imply that SQL was part of the original production workflow and does not reproduce private data or operational totals.
+This SQLite companion uses the same synthetic Excel workbooks as the public Power BI project. It shows how each reservation moves from source data to reporting and records why a row was rejected.
 
 [View the executed result snapshot](RESULTS.md)
 
@@ -8,16 +8,17 @@ This companion loads the **same fully synthetic Excel workbooks used by the publ
 
 [QA control register, test coverage and verification record](../docs/qa.md)
 
-## What this demonstrates
+## How the data moves
 
-- source-to-mart lineage: Excel → `raw_*` → `stg_*` → `fct_*` / KPI views
-- fixed-window 2026 customer lifecycle segmentation with `CASE`
-- customer value and recency calculations
-- joins at an explicit customer/reservation/hotel grain
-- Turkish-character hotel-key normalization before the fact-to-dimension join
-- `LAG` and `DENSE_RANK` window functions
-- guarded treatment of accepted bookings versus refunds
-- referential, date, amount, balance and classification quality checks
+1. Python reads the reservation and hotel workbooks into SQLite. A reload replaces both raw tables in one transaction.
+2. Staging trims keys, standardizes hotel names and validates dates and monetary fields. Reservation numbers stay as text so leading zeros survive.
+3. An accepted reservation reaches the reporting rows when its number is unique among accepted bookings, it matches exactly one hotel, and it passes the field checks. The rejection view shows one row per reason for each rejected booking. Other statuses, such as refunds, are excluded by the reporting rule.
+4. The reservation audit compares each source row with the reporting rows. It checks that included reservations appear once with the same reservation number and that rejected and excluded rows have zero matches.
+5. The KPI queries report customer lifecycle, repeat bookings and average booked value by segment. `DENSE_RANK` ranks customers by value. `LAG` supports monthly change when the preceding calendar month is also present in the data.
+
+## How to explain it in an interview
+
+> I loaded two sample Excel files into SQLite with Python. Before counting a booking, I checked that it had one hotel match and valid dates and amounts. I kept a reason for every rejected booking. Then I checked each source reservation individually. In one test I removed a reservation from the output and duplicated another. The total stayed the same, but the row audit found both problems.
 
 ## Run
 
@@ -34,9 +35,9 @@ Refresh the committed evidence snapshot with `python sql/run_demo.py --write-res
 | File | Purpose |
 |---|---|
 | `01_raw_schema.sql` | landing tables matching the generated workbooks |
-| `02_staging.sql` | type, key and date standardization plus the reservation fact join |
+| `02_staging.sql` | key, date and amount validation, rejection reasons, and the reservation fact join |
 | `03_marts.sql` | segmentation, value, monthly KPI and recommendation marts |
-| `04_quality_checks.sql` | row-loss, join, date, balance and classification controls |
-| `run_demo.py` | source generation, loading, execution and result rendering |
+| `04_quality_checks.sql` | reservation audit and quality control counts |
+| `run_demo.py` | workbook generation, snapshot replacement, execution and result rendering |
 | `RESULTS.md` | committed output generated from the runnable pipeline |
 | `DATA_DICTIONARY.md` | relation grains, keys and metric interpretation |

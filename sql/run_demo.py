@@ -18,8 +18,19 @@ SQL_FILES = [
     "03_marts.sql",
     "04_quality_checks.sql",
 ]
+HOTEL_HEADERS = ("Otel Adı", "Ülke", "Şehir", "İlçe", "Otel Sınıfı", "Enlem", "Boylam")
+RESERVATION_HEADERS = (
+    "No", "Rez.No", "Kabul", "Ad Soyad", "Yaş", "Otel", "Geliş", "Ayrılış",
+    "Gece", "İşlem Tarihi", "Toplam", "Ödenen", "Bakiye", "Yetişkin", "Çocuk", "Düşünceler",
+)
 REPORTS = [
     ("Pipeline reconciliation", "SELECT * FROM pipeline_reconciliation"),
+    ("Reservation row audit", """
+        SELECT expected_outcome, COUNT(*) AS source_rows, SUM(fact_rows) AS output_rows
+        FROM reservation_reconciliation
+        GROUP BY expected_outcome
+        ORDER BY expected_outcome
+    """),
     ("Lifecycle distribution", """
         SELECT lifecycle_segment, COUNT(*) AS customers
         FROM customer_lifecycle_2026
@@ -31,10 +42,18 @@ REPORTS = [
         FROM customer_value_2026
         ORDER BY value_rank, customer_name LIMIT 5
     """),
+    ("Customer KPIs by segment", """
+        SELECT * FROM segment_booking_kpis_2026 ORDER BY lifecycle_segment
+    """),
     ("2026 monthly KPIs", """
         SELECT * FROM monthly_booking_kpis
         WHERE booking_month LIKE '2026-%'
         ORDER BY booking_month
+    """),
+    ("Rejected reservation rows", """
+        SELECT source_row_no, reservation_no, reason
+        FROM reservation_rejection_reasons
+        ORDER BY source_row_id, reason
     """),
     ("Data-quality checks", """
         SELECT * FROM quality_check_results ORDER BY check_name
@@ -50,13 +69,16 @@ def load_setup_module():
     return module
 
 
-def rows_from_workbook(path):
+def rows_from_workbook(path, required_headers):
     workbook = load_workbook(path, data_only=True, read_only=True)
     try:
-        worksheet = workbook.active
-        values = worksheet.iter_rows(values_only=True)
-        headers = next(values)
-        return [dict(zip(headers, row)) for row in values]
+        values = workbook.active.iter_rows(values_only=True)
+        headers = next(values, ())
+        invalid_headers = [header for header in required_headers if headers.count(header) != 1]
+        if invalid_headers:
+            raise ValueError(f"{path.name}: expected one column each for {', '.join(invalid_headers)}")
+        positions = [headers.index(header) for header in required_headers]
+        return [tuple(iso_date(row[position]) for position in positions) for row in values]
     finally:
         workbook.close()
 
@@ -70,23 +92,22 @@ def iso_date(value):
 
 
 def load_workbooks(connection, folder):
-    hotel_rows = rows_from_workbook(folder / "Hotels-Mock.xlsx")
-    connection.executemany("INSERT INTO raw_hotels VALUES (?, ?, ?, ?, ?, ?, ?)", [(
-        row["Otel Adı"], row["Ülke"], row["Şehir"], row["İlçe"],
-        row["Otel Sınıfı"], row["Enlem"], row["Boylam"]
-    ) for row in hotel_rows])
+    """Read both sources before replacing the current demo snapshot."""
+    hotel_rows = rows_from_workbook(folder / "Hotels-Mock.xlsx", HOTEL_HEADERS)
+    reservation_rows = rows_from_workbook(folder / "Travel-Mock.xlsx", RESERVATION_HEADERS)
 
-    reservation_rows = rows_from_workbook(folder / "Travel-Mock.xlsx")
-    connection.executemany("""
-        INSERT INTO raw_reservations VALUES (
-            ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?
-        )
-    """, [(
-        row["No"], row["Rez.No"], row["Kabul"], row["Ad Soyad"], row["Yaş"],
-        row["Otel"], row["Geliş"], row["Ayrılış"], row["Gece"],
-        iso_date(row["İşlem Tarihi"]), row["Toplam"], row["Ödenen"],
-        row["Bakiye"], row["Yetişkin"], row["Çocuk"], row["Düşünceler"]
-    ) for row in reservation_rows])
+    # Both tables change together. An insert failure restores the previous snapshot.
+    with connection:
+        connection.execute("DELETE FROM raw_hotels")
+        connection.execute("DELETE FROM raw_reservations")
+        connection.executemany("INSERT INTO raw_hotels VALUES (?, ?, ?, ?, ?, ?, ?)", hotel_rows)
+        connection.executemany("""
+            INSERT INTO raw_reservations (
+                source_row_no, reservation_no, acceptance_status, customer_name, customer_age,
+                hotel_name, arrival_serial, departure_serial, nights, transaction_date,
+                total_amount, paid_amount, balance_amount, adults, children, notes
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        """, reservation_rows)
 
 
 def build_connection():

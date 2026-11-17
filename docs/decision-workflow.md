@@ -40,7 +40,7 @@ Phone numbers and callback scheduling are outside the report. It does not genera
 - [Dashboard pages](dashboard.md) show lifecycle, booking timing and hotel geography. Public figures and identities are anonymised or synthetic; they are not production outcome totals.
 - [Project findings](story.md#what-i-found) explain how the views can support recommendations. No increase in conversion or revenue has been measured.
 - [SQL results](../sql/RESULTS.md) and [queries](../sql/03_marts.sql) make the synthetic lifecycle, hotel and booking calculations inspectable. SQL is a public portfolio companion, not a claim about the original production workflow.
-- [QA and validation evidence](qa.md) records the nine SQL controls, 21 automated tests, execution evidence and remaining coverage limits.
+- The synthetic SQL demo checks reservation rows against the output and tests invalid data and repeat loads. [QA and validation evidence](qa.md)
 
 ## Implemented and proposed work
 
