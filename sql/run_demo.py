@@ -135,15 +135,21 @@ def main():
     try:
         output = render_results(connection)
         print(output, end="")
-        failures = connection.execute(
-            "SELECT check_name, issue_count FROM quality_check_results WHERE issue_count <> 0"
-        ).fetchall()
+        failures = connection.execute("""
+            SELECT check_name, issue_count
+            FROM quality_check_results
+            WHERE issue_count <> 0
+            UNION ALL
+            SELECT check_name, issue_count
+            FROM star_schema_quality_checks
+            WHERE issue_count <> 0
+        """).fetchall()
         if failures:
             raise SystemExit("SQL demo failed one or more data-quality checks.")
         if args.write_results:
             (SQL_DIR / "RESULTS.md").write_text(output, encoding="utf-8")
             print("Updated sql/RESULTS.md.")
-        print("PASS: all SQL data-quality checks returned zero issues.")
+        print("PASS: all SQL and star-schema quality checks returned zero issues.")
     finally:
         connection.close()
 
