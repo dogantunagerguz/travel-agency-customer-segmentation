@@ -42,6 +42,23 @@ class SqlPortfolioDemoTests(unittest.TestCase):
         """).fetchall()
         self.assertEqual(failures, [])
 
+    def test_star_schema_preserves_fact_grain(self):
+        row = self.connection.execute("""
+            SELECT
+                (SELECT COUNT(*) FROM fct_booking) AS fact_rows,
+                (SELECT COUNT(*) FROM dim_customer) AS customers,
+                (SELECT COUNT(*) FROM dim_hotel) AS hotels
+        """).fetchone()
+        self.assertEqual(tuple(row), (48, 30, 6))
+
+    def test_star_schema_quality_checks_pass(self):
+        failures = self.connection.execute("""
+            SELECT check_name
+            FROM star_schema_quality_checks
+            WHERE issue_count <> 0
+        """).fetchall()
+        self.assertEqual(failures, [])
+
     def test_committed_results_snapshot_is_current(self):
         expected = run_demo.render_results(self.connection)
         actual = (ROOT / "sql/RESULTS.md").read_text(encoding="utf-8")
