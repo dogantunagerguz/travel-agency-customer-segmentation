@@ -1,3 +1,80 @@
+
+
+-- Junior portfolio star schema.
+-- These views keep descriptive attributes in dimensions and numeric events in
+-- one reservation-grain fact. The existing marts below remain unchanged so the
+-- published Power BI demo and its KPI definitions stay reproducible.
+CREATE VIEW dim_customer AS
+SELECT
+    customer_key,
+    MAX(customer_name) AS customer_name,
+    MAX(customer_age) AS customer_age,
+    CASE
+        WHEN MAX(customer_age) < 30 THEN 'Under 30'
+        WHEN MAX(customer_age) < 45 THEN '30-44'
+        WHEN MAX(customer_age) < 60 THEN '45-59'
+        ELSE '60+'
+    END AS age_band
+FROM stg_reservations
+WHERE booking_status = 'accepted'
+GROUP BY customer_key;
+
+CREATE VIEW dim_hotel AS
+SELECT
+    hotel_key,
+    hotel_name,
+    country,
+    city,
+    district,
+    hotel_class,
+    latitude,
+    longitude
+FROM stg_hotels;
+
+CREATE VIEW dim_date AS
+WITH dates AS (
+    SELECT booking_date AS full_date FROM stg_reservations WHERE booking_status = 'accepted'
+    UNION
+    SELECT arrival_date FROM stg_reservations WHERE booking_status = 'accepted'
+    UNION
+    SELECT departure_date FROM stg_reservations WHERE booking_status = 'accepted'
+)
+SELECT
+    CAST(strftime('%Y%m%d', full_date) AS INTEGER) AS date_key,
+    full_date,
+    CAST(strftime('%Y', full_date) AS INTEGER) AS year,
+    CAST(strftime('%m', full_date) AS INTEGER) AS month_number,
+    strftime('%Y-%m', full_date) AS year_month,
+    CASE strftime('%w', full_date)
+        WHEN '0' THEN 'Sunday'
+        WHEN '1' THEN 'Monday'
+        WHEN '2' THEN 'Tuesday'
+        WHEN '3' THEN 'Wednesday'
+        WHEN '4' THEN 'Thursday'
+        WHEN '5' THEN 'Friday'
+        WHEN '6' THEN 'Saturday'
+    END AS weekday_name
+FROM dates
+WHERE full_date IS NOT NULL;
+
+CREATE VIEW fct_booking AS
+SELECT
+    reservation_no,
+    customer_key,
+    hotel_key,
+    CAST(strftime('%Y%m%d', booking_date) AS INTEGER) AS booking_date_key,
+    CAST(strftime('%Y%m%d', arrival_date) AS INTEGER) AS arrival_date_key,
+    CAST(strftime('%Y%m%d', departure_date) AS INTEGER) AS departure_date_key,
+    nights,
+    adults,
+    children,
+    total_amount,
+    paid_amount,
+    balance_amount,
+    CAST(julianday(arrival_date) - julianday(booking_date) AS INTEGER) AS lead_days
+FROM stg_reservations
+WHERE booking_status = 'accepted';
+
 -- Fixed-window lifecycle logic equivalent to the published 2026 model.
 CREATE VIEW customer_lifecycle_2026 AS
 WITH customers AS (
