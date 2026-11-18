@@ -39,3 +39,27 @@ UNION ALL
 SELECT 'customer_not_classified', COUNT(*)
 FROM customer_lifecycle_2026
 WHERE lifecycle_segment = 'Unclassified';
+
+-- Star-schema controls are kept separate from the original nine controls so the
+-- earlier result snapshot remains comparable.
+CREATE VIEW star_schema_quality_checks AS
+SELECT 'star_fact_row_count_mismatch' AS check_name, ABS(
+    (SELECT COUNT(*) FROM stg_reservations WHERE booking_status = 'accepted')
+    - (SELECT COUNT(*) FROM fct_booking)
+) AS issue_count
+UNION ALL
+SELECT 'fact_customer_dimension_not_matched', COUNT(*)
+FROM fct_booking AS f
+LEFT JOIN dim_customer AS c USING (customer_key)
+WHERE c.customer_key IS NULL
+UNION ALL
+SELECT 'fact_hotel_dimension_not_matched', COUNT(*)
+FROM fct_booking AS f
+LEFT JOIN dim_hotel AS h USING (hotel_key)
+WHERE h.hotel_key IS NULL
+UNION ALL
+SELECT 'fact_booking_date_dimension_not_matched', COUNT(*)
+FROM fct_booking AS f
+LEFT JOIN dim_date AS d ON d.date_key = f.booking_date_key
+WHERE d.date_key IS NULL;
+
