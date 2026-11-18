@@ -13,7 +13,7 @@ I started with the team's difficulty identifying loyal customers. I changed the 
 **Tools:** Power BI · DAX · Power Query · SQL / SQLite (public companion) · Python · LocationIQ<br>
 **Status:** In operational use; manually refreshed; source data remains private.
 
-[Decision workflow and evidence](docs/decision-workflow.md) · [▶ Run the public demo](#run-the-public-demo) · [SQL companion](sql/) · [QA & validation](#qa--validation) · [Full story](docs/story.md)
+[Decision workflow and evidence](docs/decision-workflow.md) · [End-to-end BI pipeline](docs/end-to-end-bi-pipeline.md) · [▶ Run the public demo](#run-the-public-demo) · [SQL companion](sql/) · [QA & validation](#qa--validation) · [Full story](docs/story.md)
 
 ## Run the public demo
 
@@ -38,7 +38,7 @@ The sample uses a fixed **2026 reference year**, invented identities, and matchi
 
 ## SQL evidence
 
-The [SQL companion README](sql/README.md) explains the runnable Excel → raw → staging → fact/KPI pipeline, including lifecycle segmentation, hotel-key normalization, window functions, and data-quality checks. It uses **48 synthetic reservations, 30 customers, and 6 hotels**; SQL is a public portfolio companion, not a claim about the original production workflow.
+The [SQL companion README](sql/README.md) explains the runnable Excel → raw → staging → star schema → KPI pipeline. The star layer contains `dim_customer`, `dim_hotel`, `dim_date` and the reservation-grain `fct_booking`; the existing marts retain lifecycle segmentation, hotel-key normalization, window functions and data-quality checks. It uses **48 synthetic reservations, 30 customers, and 6 hotels**; SQL is a public portfolio companion, not a claim about the original production workflow.
 
 After installing the dependencies above, run it from the repository root:
 
@@ -52,12 +52,12 @@ python sql/run_demo.py
 
 [![Python and SQL tests](https://github.com/dogantunagerguz/travel-agency-customer-segmentation/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/dogantunagerguz/travel-agency-customer-segmentation/actions/workflows/ci.yml)
 
-**9 SQL data-quality controls · 21 automated tests.** The synthetic fixture reconciles **48 reservations → 48 fact rows**, with **30 customers and 6 hotels**. All nine controls report zero issues; the test suite also checks that the committed SQL results match a fresh run.
+**13 SQL data-quality controls · 23 automated tests.** The synthetic fixture reconciles **48 reservations → 48 fact rows**, with **30 customers and 6 hotels**. The original nine controls and four star-schema relationship controls report zero issues; the test suite also checks that the committed SQL results match a fresh run.
 
 | Test group | Tests | Coverage |
 |---|---:|---|
 | Demo sources and portability | 6 | Workbook/sheet/column references, related keys, relocation, repeatable sample values and preservation of existing files |
-| SQL | 4 | Lifecycle distribution, source-to-fact counts, the nine quality controls and result-snapshot consistency |
+| SQL | 6 | Lifecycle distribution, source-to-fact counts, star-schema grain, thirteen quality controls and result-snapshot consistency |
 | Money parsing and API-key configuration | 11 | Signed and locale-formatted amounts, Excel output and local configuration using test-only keys |
 
 After installing the dependencies, run the same suite as GitHub CI:
@@ -68,6 +68,6 @@ python -m unittest discover -s tests -p "test_*.py" -v
 
 [QA record, control definitions and coverage limits](docs/qa.md) · [Executed SQL results](sql/RESULTS.md) · [Test source](tests/)
 
-These checks cover the public synthetic demo and Python/SQL code. They do not execute Power BI Desktop or its DAX engine, call the live geocoding API, or establish user acceptance or operational outcomes. Individual bad-data regression cases for all nine SQL controls remain to be added.
+These checks cover the public synthetic demo and Python/SQL code. The repository documents, but does not claim, a Power BI Service deployment; the public project refreshes in Power BI Desktop. They do not execute Power BI Desktop or its DAX engine, call the live geocoding API, or establish user acceptance or operational outcomes. Individual bad-data regression cases for all nine SQL controls remain to be added.
 
 For the business context, design decisions, operational limitations, and original-data tooling, read the [full project story](docs/story.md).
