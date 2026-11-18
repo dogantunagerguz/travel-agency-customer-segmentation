@@ -6,11 +6,11 @@ This companion loads the **same fully synthetic Excel workbooks used by the publ
 
 [Review the SQL data dictionary](DATA_DICTIONARY.md)
 
-[QA control register, test coverage and verification record](../docs/qa.md)
+[QA control register, test coverage and verification record](../docs/qa.md)\n\n[End-to-end BI pipeline and refresh boundary](../docs/end-to-end-bi-pipeline.md)
 
 ## What this demonstrates
 
-- source-to-mart lineage: Excel → `raw_*` → `stg_*` → `fct_*` / KPI views
+- source-to-mart lineage: Excel → `raw_*` → `stg_*` → star schema → KPI views\n- a reservation-grain star schema: `dim_customer`, `dim_hotel`, `dim_date`, `fct_booking`
 - fixed-window 2026 customer lifecycle segmentation with `CASE`
 - customer value and recency calculations
 - joins at an explicit customer/reservation/hotel grain
@@ -27,7 +27,7 @@ Run the repository's normal demo setup first only if you want to open Power BI. 
 python sql/run_demo.py
 ```
 
-Refresh the committed evidence snapshot with `python sql/run_demo.py --write-results`. A successful run ends with `PASS: all SQL data-quality checks returned zero issues.` The reference windows intentionally match the published model: 2026, 2025 and before 2025.
+Refresh the committed evidence snapshot with `python sql/run_demo.py --write-results`. A successful run ends with `PASS: all SQL and star-schema quality checks returned zero issues.` The reference windows intentionally match the published model: 2026, 2025 and before 2025.
 
 ## Files
 
@@ -35,8 +35,8 @@ Refresh the committed evidence snapshot with `python sql/run_demo.py --write-res
 |---|---|
 | `01_raw_schema.sql` | landing tables matching the generated workbooks |
 | `02_staging.sql` | type, key and date standardization plus the reservation fact join |
-| `03_marts.sql` | segmentation, value, monthly KPI and recommendation marts |
-| `04_quality_checks.sql` | row-loss, join, date, balance and classification controls |
+| `03_marts.sql` | customer/hotel/date dimensions, booking fact, segmentation, value, monthly KPI and recommendation marts |
+| `04_quality_checks.sql` | original controls plus fact-grain and dimension-relationship checks |
 | `run_demo.py` | source generation, loading, execution and result rendering |
 | `RESULTS.md` | committed output generated from the runnable pipeline |
 | `DATA_DICTIONARY.md` | relation grains, keys and metric interpretation |
